@@ -156,8 +156,11 @@ export default async function Home() {
                 <li>
                   <h3>
                     2024: "To Seek or To Hide", coming in Sept 2024,{" "}
-                    <a href="#" className="underline">
-                      Pre-Order
+                    <a
+                      href="https://buy.stripe.com/eVa15X5Zb4mMcb6aEE"
+                      className="underline"
+                    >
+                      Pre-Order 10" vinyl
                     </a>
                   </h3>
                   <Image
