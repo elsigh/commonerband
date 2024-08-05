@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "format": "npx @biomejs/biome format ./ --write",
@@ -22,6 +22,7 @@
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@types/webpack-env": "^1.18.1",
+    "@vercel/route-bundle-analyzer": "^0.0.4",
     "autoprefixer": "^10.4.12",
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.0",
