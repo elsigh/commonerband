@@ -27,7 +27,7 @@
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.0",
     "fast-glob": "^3.2.11",
-    "next": "15.0.0-canary.86",
+    "next": "15.0.0-canary.110",
     "next-themes": "^0.2.1",
     "react": "19.0.0-rc-14a4699f-20240725",
     "react-dom": "19.0.0-rc-14a4699f-20240725",

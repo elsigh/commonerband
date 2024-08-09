@@ -1,17 +1,13 @@
-import Image, { type ImageProps } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-} from "@/components/SocialIcons";
 
 import SeekHideCoverFront from "@/images/seek-hide-cover-front.jpg";
 import WhenNoOnesLookingCoverFront from "@/images/When-No-Ones-Looking.jpg";
+import logoSoundcloud from "@/images/logos/soundcloud.png";
+import { SpotifyIcon, XIcon, InstagramIcon } from "@/components/SocialIcons";
 
 function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -31,19 +27,6 @@ function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
       <path
         d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
         className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  );
-}
-
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );
@@ -91,51 +74,6 @@ function Newsletter() {
   );
 }
 
-interface Role {
-  company: string;
-  title: string;
-  logo: ImageProps["src"];
-  start: string | { label: string; dateTime: string };
-  end: string | { label: string; dateTime: string };
-}
-
-function Role({ role }: { role: Role }) {
-  const startLabel =
-    typeof role.start === "string" ? role.start : role.start.label;
-  const startDate =
-    typeof role.start === "string" ? role.start : role.start.dateTime;
-
-  const endLabel = typeof role.end === "string" ? role.end : role.end.label;
-  const endDate = typeof role.end === "string" ? role.end : role.end.dateTime;
-
-  return (
-    <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-      </div>
-      <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
-        </dd>
-        <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
-        </dd>
-        <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{" "}
-          <span aria-hidden="true">—</span>{" "}
-          <time dateTime={endDate}>{endLabel}</time>
-        </dd>
-      </dl>
-    </li>
-  );
-}
-
 export default async function Home() {
   return (
     <>
@@ -146,11 +84,21 @@ export default async function Home() {
               <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                 Commoner
               </h1>
-              <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              <p className="text-base text-zinc-600 dark:text-zinc-400">
                 is an Americana-sounding band in San Francisco.
               </p>
-              <h2 className="mt-6 font-bold text-zinc-900 dark:text-zinc-300">
-                Recordings:
+
+              <div className="mt-4 flex gap-6 items-end">
+                <SocialLink href="#" aria-label="" icon={SpotifyIcon} />
+                <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
+                <SocialLink
+                  href="#"
+                  aria-label="Follow on Instagram"
+                  icon={InstagramIcon}
+                />
+              </div>
+              <h2 className="mt-12 font-bold text-zinc-900 dark:text-zinc-300">
+                Recordings
               </h2>
               <ol className="mt-2 text-base text-zinc-600 dark:text-zinc-400 space-y-1">
                 <li>
@@ -159,16 +107,23 @@ export default async function Home() {
                     <a
                       href="https://buy.stripe.com/eVa15X5Zb4mMcb6aEE"
                       className="underline"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Pre-Order 10" vinyl
                     </a>
                   </h3>
-                  <Image
-                    src={SeekHideCoverFront}
-                    alt=""
-                    sizes="(min-width: 1024px) 32rem, 20rem"
-                    className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-                  />
+                  <div>
+                    <Image src={logoSoundcloud} alt="" height={12} width={32} />
+                  </div>
+                  <div>
+                    <Image
+                      src={SeekHideCoverFront}
+                      alt=""
+                      sizes="(min-width: 1024px) 32rem, 20rem"
+                      className="mt-3 aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                    />
+                  </div>
                 </li>
                 <li className="pt-12">
                   <h3>2017: "When No One's Looking"</h3>
@@ -176,28 +131,10 @@ export default async function Home() {
                     src={WhenNoOnesLookingCoverFront}
                     alt=""
                     sizes="(min-width: 1024px) 32rem, 20rem"
-                    className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                    className="mt-3 aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
                   />
                 </li>
               </ol>
-              <div className="mt-6 flex gap-6">
-                <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
-                <SocialLink
-                  href="#"
-                  aria-label="Follow on Instagram"
-                  icon={InstagramIcon}
-                />
-                <SocialLink
-                  href="#"
-                  aria-label="Follow on GitHub"
-                  icon={GitHubIcon}
-                />
-                <SocialLink
-                  href="#"
-                  aria-label="Follow on LinkedIn"
-                  icon={LinkedInIcon}
-                />
-              </div>
             </div>
           </div>
 
