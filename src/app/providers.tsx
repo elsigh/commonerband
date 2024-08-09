@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ThemeProvider, useTheme } from "next-themes";
 
 function usePrevious<T>(value: T) {
-  let ref = useRef<T>();
+  const ref = useRef<T>();
 
   useEffect(() => {
     ref.current = value;
@@ -15,21 +15,23 @@ function usePrevious<T>(value: T) {
 }
 
 function ThemeWatcher() {
-  let { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
-    let media = window.matchMedia("(prefers-color-scheme: dark)");
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
 
     function onMediaChange() {
-      let systemTheme = media.matches ? "dark" : "light";
+      const systemTheme = media.matches ? "dark" : "light";
       if (resolvedTheme === systemTheme) {
         setTheme("system");
       }
     }
 
-    onMediaChange();
+    //onMediaChange();
+    setTheme("dark");
     media.addEventListener("change", onMediaChange);
 
+    console.debug("ThemeWatcher", { resolvedTheme });
     return () => {
       media.removeEventListener("change", onMediaChange);
     };
@@ -41,8 +43,8 @@ function ThemeWatcher() {
 export const AppContext = createContext<{ previousPathname?: string }>({});
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  let pathname = usePathname();
-  let previousPathname = usePrevious(pathname);
+  const pathname = usePathname();
+  const previousPathname = usePrevious(pathname);
 
   return (
     <AppContext.Provider value={{ previousPathname }}>
