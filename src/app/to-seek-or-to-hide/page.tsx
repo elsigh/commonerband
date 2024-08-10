@@ -14,6 +14,8 @@ import { Button } from "@/components/Button";
 
 import frontCover from "@/images/seek-hide-cover-front.jpg";
 import backCover from "@/images/seek-hide-cover-back.jpg";
+import labelSide1 from "@/images/seek-hide-label-side1.png";
+import labelSide2 from "@/images/seek-hide-label-side2.png";
 import interiorLyrics1 from "@/images/seek-hide-interior-lyrics1.jpg";
 import interiorLyrics2 from "@/images/seek-hide-interior-lyrics2.jpg";
 
@@ -82,26 +84,42 @@ export default function About() {
                 className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
             </div>
-            <div className="">
-              <Image
-                src={interiorLyrics1}
-                alt=""
-                sizes="(min-width: 1024px) 32rem, 20rem"
-                className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
-            </div>
-            <div className="">
-              <Image
-                src={interiorLyrics2}
-                alt=""
-                sizes="(min-width: 1024px) 32rem, 20rem"
-                className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
-            </div>
           </div>
         </div>
         <div className="hidden lg:block lg:pl-28">
           <Links />
+        </div>
+      </div>
+      <div className="mt-12 max-w-[800px]">
+        <div className="mt-12">
+          <Image
+            src={interiorLyrics1}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            className="aspect-square rounded-2xl bg-zinc-100  dark:bg-zinc-800"
+          />
+        </div>
+        <div className="mt-12">
+          <Image
+            src={interiorLyrics2}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+          />
+        </div>
+        <div className="mt-12 grid grid-cols-2">
+          <Image
+            src={labelSide1}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            className="aspect-square rounded-l-2xl bg-zinc-100  dark:bg-zinc-800"
+          />
+          <Image
+            src={labelSide2}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            className="aspect-square rounded-r-2xl bg-zinc-100  dark:bg-zinc-800"
+          />
         </div>
       </div>
     </Container>
