@@ -18,7 +18,7 @@ import {
 export default async function Home() {
   return (
     <>
-      <Container className="mt-12">
+      <Container className="md:mt-12">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none">
           <div className="flex flex-col gap-16">
             <div className="max-w-2xl">

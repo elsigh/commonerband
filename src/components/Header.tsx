@@ -1,8 +1,5 @@
 "use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   Popover,
   PopoverButton,
@@ -12,6 +9,8 @@ import {
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
+import { usePathname } from "next/navigation";
+import { useRef, useEffect } from "react";
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -24,6 +23,14 @@ function CloseIcon(props: React.ComponentPropsWithoutRef<"svg">) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+function BarsIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
     </svg>
   );
 }
@@ -96,7 +103,7 @@ function MobileNavigation(
   return (
     <Popover {...props}>
       <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-        Menu
+        Go
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </PopoverButton>
       <PopoverBackdrop
@@ -113,11 +120,12 @@ function MobileNavigation(
             <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
           </PopoverButton>
           <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-            Navigation
+            Go
           </h2>
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+            <MobileNavItem href="/">Home</MobileNavItem>
             <MobileNavItem href="/bio">Bio</MobileNavItem>
             <MobileNavItem href="/to-seek-or-to-hide">Recordings</MobileNavItem>
             <MobileNavItem href="https://www.facebook.com/commonerband">
@@ -176,25 +184,6 @@ function clamp(number: number, a: number, b: number) {
   const min = Math.min(a, b);
   const max = Math.max(a, b);
   return Math.min(Math.max(number, min), max);
-}
-
-function Avatar({
-  large = false,
-  className,
-  ...props
-}: Omit<React.ComponentPropsWithoutRef<typeof Link>, "href"> & {
-  large?: boolean;
-}) {
-  return (
-    <Link
-      href="/"
-      aria-label="Home"
-      className={clsx(className, "pointer-events-auto")}
-      {...props}
-    >
-      Home
-    </Link>
-  );
 }
 
 export function Header() {

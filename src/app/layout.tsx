@@ -8,10 +8,10 @@ import "@/styles/tailwind.css";
 export const metadata: Metadata = {
   title: {
     template: "%s - Commoner",
-    default: "Commoner - An Americana band from San Francisco",
+    default: "Commoner - music from San Francisco",
   },
   description:
-    "Commoner is an Americana band from San Francisco, California. Their music is a blend of folk, rock, and blood.",
+    "Commoner is an American band from San Francisco, California. Their music is a blend of folk, rock, and blood.",
 };
 
 export default function RootLayout({
