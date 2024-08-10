@@ -290,7 +290,7 @@ export function Header() {
 
     function updateStyles() {
       updateHeaderStyles();
-      updateAvatarStyles();
+      //updateAvatarStyles();
       isInitial.current = false;
     }
 
