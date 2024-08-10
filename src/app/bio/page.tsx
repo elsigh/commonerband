@@ -4,8 +4,9 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import { InstagramIcon, XIcon } from "@/components/SocialIcons";
+import { FacebookIcon, InstagramIcon } from "@/components/SocialIcons";
 
+import peopleInTheBand from "@/images/people-in-the-band.jpg";
 import image from "@/images/instruments-studio.jpg";
 
 function SocialLink({
@@ -44,13 +45,14 @@ function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 }
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "With a sound",
+  title: "Bio",
+  description:
+    "Commoner's songs get into weird old feelings, smoky memories, and reverent joy and sorrow",
 };
 
 export default function About() {
   return (
-    <Container className="mt-16 sm:mt-32">
+    <Container className="mt-12">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
         <div className="lg:pl-20">
           <div className="max-w-xs px-2.5 lg:max-w-none">
@@ -70,13 +72,13 @@ export default function About() {
             <p>
               that would love to wade in a stream with Gillian Welch and Townes
               Van Zandt, Commoner's first record "When No One's Looking" strikes
-              a melancholy, vibrant tone. Their songs get into weird old
-              feelings, smoky memories, and reverent joy and sorrow. Commoner
-              has been active in San Francisco for 7 years with the band now
-              consisting of Simon, Edward Marks on drums, Richard Weld on bass
-              and Ashley Henderson on vocals. This Summer 2024 will see the
-              release of the band's second record, To Seek or to Hide on 10"
-              vinyl.
+              a melancholy, vibrant tone. The songs get into weird old feelings,
+              smoky memories, and reverent joy and sorrow. Commoner has been
+              active in San Francisco for 7 years with the band now consisting
+              of Lindsey Simon (songwriter, vocals), Edward Marks on drums,
+              Richard Weld on bass and Ashley Henderson on harmony vocals. This
+              Fall 2024 will see the release of the band's second record, "To
+              Seek or to Hide" on 10inch vinyl.
             </p>
             <p>
               Simon grew up in Texas and cut his teeth playing rock clubs in
@@ -89,7 +91,10 @@ export default function About() {
         </div>
         <div className="lg:pl-20">
           <ul>
-            <SocialLink href="https://facebook.com/commonerband" icon={XIcon}>
+            <SocialLink
+              href="https://facebook.com/commonerband"
+              icon={FacebookIcon}
+            >
               Follow on Facebook
             </SocialLink>
             <SocialLink
@@ -108,6 +113,14 @@ export default function About() {
             </SocialLink>
           </ul>
         </div>
+      </div>
+
+      <div className="mt-12">
+        <Image
+          src={peopleInTheBand}
+          alt=""
+          className="rounded-2xl bg-zinc-100 dark:bg-zinc-800"
+        />
       </div>
     </Container>
   );

@@ -27,8 +27,9 @@ export function Footer() {
           <ContainerInner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                <NavLink href="/">Home</NavLink>
                 <NavLink href="/bio">Bio</NavLink>
-                <NavLink href="/media">Media</NavLink>
+                <NavLink href="/to-seek-or-to-hide">Recordings</NavLink>
                 <NavLink href="https://www.facebook.com/commonerband">
                   Shows
                 </NavLink>

@@ -6,8 +6,126 @@ import { Container } from "@/components/Container";
 
 import SeekHideCoverFront from "@/images/seek-hide-cover-front.jpg";
 import WhenNoOnesLookingCoverFront from "@/images/When-No-Ones-Looking.jpg";
-import logoSoundcloud from "@/images/logos/soundcloud.png";
-import { SpotifyIcon, XIcon, InstagramIcon } from "@/components/SocialIcons";
+
+import {
+  AppleIcon,
+  FacebookIcon,
+  SpotifyIcon,
+  SoundcloudIcon,
+  InstagramIcon,
+} from "@/components/SocialIcons";
+
+export default async function Home() {
+  return (
+    <>
+      <Container className="mt-12">
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none">
+          <div className="flex flex-col gap-16">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                Commoner
+              </h1>
+              <p className="text-base text-zinc-600 dark:text-zinc-400">
+                is an Americana-sounding band from San Francisco.
+              </p>
+
+              <div className="mt-4 flex gap-6 items-end">
+                <SocialLink
+                  href="https://facebook.com/commonerband"
+                  aria-label="Follow on Facebook"
+                  icon={FacebookIcon}
+                />
+                <SocialLink
+                  href="#"
+                  aria-label="Follow on Instagram"
+                  icon={InstagramIcon}
+                />
+              </div>
+              <ol className="mt-12 text-base text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>
+                  <h3>
+                    <strong>"To Seek or To Hide"</strong>
+                    <span className="ml-4">Coming soon (Oct 1, 2024)</span>
+                  </h3>
+                  <div className="mt-4 flex gap-6 items-end">
+                    <Button
+                      type="submit"
+                      className="flex-none"
+                      href="https://buy.stripe.com/eVa15X5Zb4mMcb6aEE"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Pre-order 10" vinyl
+                    </Button>
+                    <SocialLink
+                      href="#"
+                      aria-label="Listen on Spotify (coming soon)"
+                      icon={SpotifyIcon}
+                    />
+                    <SocialLink
+                      href="https://soundcloud.com/commoner/sets/to-seek-or-to-hide"
+                      aria-label="Listen on Soundcloud"
+                      icon={SoundcloudIcon}
+                    />
+
+                    <SocialLink
+                      href="https://music.apple.com/us/album/to-seek-or-to-hide/1760747915?uo=4&app=itunes&at=1001lry3&ct=dashboard"
+                      aria-label="Listen on Apple Music"
+                      icon={AppleIcon}
+                    />
+                  </div>
+                  <div>
+                    <Link href="/to-seek-or-to-hide">
+                      <Image
+                        src={SeekHideCoverFront}
+                        alt=""
+                        sizes="(min-width: 1024px) 32rem, 20rem"
+                        className="mt-3 aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                      />
+                    </Link>
+                  </div>
+                </li>
+                <li className="pt-12">
+                  <h3>
+                    <strong>"When No One's Looking"</strong>
+                    <span className="ml-4">2017</span>
+                  </h3>
+                  <div className="mt-4 flex gap-6 items-end">
+                    <SocialLink
+                      href="https://open.spotify.com/album/1EvZujvFSt2laJhFxLh9hf"
+                      aria-label="Listen on Spotify"
+                      icon={SpotifyIcon}
+                    />
+                    <SocialLink
+                      href="https://soundcloud.com/commoner/sets/when-no-ones-looking"
+                      aria-label="Listen on Soundcloud"
+                      icon={SoundcloudIcon}
+                    />
+                    <SocialLink
+                      href="https://itunes.apple.com/us/album/when-no-ones-looking/id1258361781?uo=4&app=music&at=1001lry3&ct=dashboard"
+                      aria-label="Listen on Apple Music"
+                      icon={AppleIcon}
+                    />
+                  </div>
+                  <Image
+                    src={WhenNoOnesLookingCoverFront}
+                    alt=""
+                    sizes="(min-width: 1024px) 32rem, 20rem"
+                    className="mt-3 aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                  />
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div className="space-y-10 lg:pr-52">
+            <Newsletter />
+          </div>
+        </div>
+      </Container>
+    </>
+  );
+}
 
 function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -71,78 +189,5 @@ function Newsletter() {
         </Button>
       </div>
     </form>
-  );
-}
-
-export default async function Home() {
-  return (
-    <>
-      <Container className="mt-12">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none">
-          <div className="flex flex-col gap-16">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                Commoner
-              </h1>
-              <p className="text-base text-zinc-600 dark:text-zinc-400">
-                is an Americana-sounding band in San Francisco.
-              </p>
-
-              <div className="mt-4 flex gap-6 items-end">
-                <SocialLink href="#" aria-label="" icon={SpotifyIcon} />
-                <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
-                <SocialLink
-                  href="#"
-                  aria-label="Follow on Instagram"
-                  icon={InstagramIcon}
-                />
-              </div>
-              <h2 className="mt-12 font-bold text-zinc-900 dark:text-zinc-300">
-                Recordings
-              </h2>
-              <ol className="mt-2 text-base text-zinc-600 dark:text-zinc-400 space-y-1">
-                <li>
-                  <h3>
-                    2024: "To Seek or To Hide", coming in Sept 2024,{" "}
-                    <a
-                      href="https://buy.stripe.com/eVa15X5Zb4mMcb6aEE"
-                      className="underline"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Pre-Order 10" vinyl
-                    </a>
-                  </h3>
-                  <div>
-                    <Image src={logoSoundcloud} alt="" height={12} width={32} />
-                  </div>
-                  <div>
-                    <Image
-                      src={SeekHideCoverFront}
-                      alt=""
-                      sizes="(min-width: 1024px) 32rem, 20rem"
-                      className="mt-3 aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-                    />
-                  </div>
-                </li>
-                <li className="pt-12">
-                  <h3>2017: "When No One's Looking"</h3>
-                  <Image
-                    src={WhenNoOnesLookingCoverFront}
-                    alt=""
-                    sizes="(min-width: 1024px) 32rem, 20rem"
-                    className="mt-3 aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-                  />
-                </li>
-              </ol>
-            </div>
-          </div>
-
-          <div className="space-y-10 lg:pr-52">
-            <Newsletter />
-          </div>
-        </div>
-      </Container>
-    </>
   );
 }
