@@ -5,11 +5,7 @@ import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 
-import {
-  SpotifyIcon,
-  SoundcloudIcon,
-  AppleIcon,
-} from "@/components/SocialIcons";
+import { SoundcloudIcon, AppleIcon } from "@/components/SocialIcons";
 import { Button } from "@/components/Button";
 
 import frontCover from "@/images/seek-hide-cover-front.jpg";
@@ -35,6 +31,8 @@ function SocialLink({
       <Link
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-fuchsia-500 dark:text-zinc-200 dark:hover:text-fuchsia-500"
+        target="_blank"
+        rel="noreferrer"
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-fuchsia-500" />
         <span className="ml-4">{children}</span>
@@ -152,9 +150,11 @@ function Links() {
       >
         Listen on Apple Music
       </SocialLink>
+      {/*
       <SocialLink href="#" icon={SpotifyIcon}>
         Listen on Spotify (coming soon)
       </SocialLink>
+      */}
     </ul>
   );
 }

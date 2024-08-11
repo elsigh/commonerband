@@ -57,11 +57,13 @@ export default async function Home() {
                     >
                       Pre-order 10" vinyl
                     </Button>
+                    {/*
                     <SocialLink
                       href="#"
                       aria-label="Listen on Spotify (coming soon)"
                       icon={SpotifyIcon}
                     />
+                    */}
                     <SocialLink
                       href="https://soundcloud.com/commoner/sets/to-seek-or-to-hide"
                       aria-label="Listen on Soundcloud"
@@ -157,7 +159,12 @@ function SocialLink({
   icon: React.ComponentType<{ className?: string }>;
 }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
+    <Link
+      className="group -m-1 p-1"
+      target="_blank"
+      rel="noreferrer"
+      {...props}
+    >
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   );
