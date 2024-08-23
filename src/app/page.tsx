@@ -51,7 +51,7 @@ export default async function Home() {
                     <Button
                       type="submit"
                       className="flex-none"
-                      href="https://buy.stripe.com/eVa15X5Zb4mMcb6aEE"
+                      href="https://buy.stripe.com/3cs4i9fzLcTia2Y8wx"
                       target="_blank"
                       rel="noreferrer"
                     >
