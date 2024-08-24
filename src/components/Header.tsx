@@ -98,7 +98,7 @@ function MobileNavItem({
 }
 
 function MobileNavigation(
-  props: React.ComponentPropsWithoutRef<typeof Popover>
+  props: React.ComponentPropsWithoutRef<typeof Popover>,
 ) {
   return (
     <Popover {...props}>
@@ -127,7 +127,9 @@ function MobileNavigation(
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
             <MobileNavItem href="/">Home</MobileNavItem>
             <MobileNavItem href="/bio">Bio</MobileNavItem>
-            <MobileNavItem href="/to-seek-or-to-hide">Recordings</MobileNavItem>
+            <MobileNavItem href="/to-seek-or-to-hide">
+              To Seek or To Hide
+            </MobileNavItem>
             <MobileNavItem href="https://www.facebook.com/commonerband">
               Shows
             </MobileNavItem>
@@ -155,7 +157,7 @@ function NavItem({
           "relative block px-3 py-2 transition",
           isActive
             ? "text-fuchsia-500 dark:text-fuchsia-400"
-            : "hover:text-fuchsia-500 dark:hover:text-fuchsia-400"
+            : "hover:text-fuchsia-500 dark:hover:text-fuchsia-400",
         )}
       >
         {children}
@@ -173,7 +175,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
         <NavItem href="/">Home</NavItem>
         <NavItem href="/bio">Bio</NavItem>
-        <NavItem href="/to-seek-or-to-hide">Recordings</NavItem>
+        <NavItem href="/to-seek-or-to-hide">To Seek or To Hide</NavItem>
         <NavItem href="https://www.facebook.com/commonerband">Shows</NavItem>
       </ul>
     </nav>
@@ -214,7 +216,7 @@ export function Header() {
       const scrollY = clamp(
         window.scrollY,
         0,
-        document.body.scrollHeight - window.innerHeight
+        document.body.scrollHeight - window.innerHeight,
       );
 
       if (isInitial.current) {
@@ -266,7 +268,7 @@ export function Header() {
 
       setProperty(
         "--avatar-image-transform",
-        `translate3d(${x}rem, 0, 0) scale(${scale})`
+        `translate3d(${x}rem, 0, 0) scale(${scale})`,
       );
 
       const borderScale = 1 / (toScale / scale);
@@ -319,7 +321,7 @@ export function Header() {
           >
             <div className="relative flex gap-4">
               <div className="flex flex-1" />
-              <div className="flex flex-1 justify-end md:justify-center">
+              <div className="flex flex-2 justify-end md:justify-center">
                 <MobileNavigation className="pointer-events-auto md:hidden" />
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>

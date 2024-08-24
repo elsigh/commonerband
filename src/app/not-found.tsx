@@ -1,22 +1,32 @@
+import Image from "next/image";
+
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 
+import src from "@/images/404.jpg";
+
 export default function NotFound() {
   return (
-    <Container className="flex h-full items-center pt-16 sm:pt-32">
+    <Container className="flex h-full items-center pt-8 sm:pt-16">
       <div className="flex flex-col items-center">
         <p className="text-base font-semibold text-zinc-400 dark:text-zinc-500">
           404
         </p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-          Page not found
+          Not here yet
         </h1>
         <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-          Sorry, we couldn’t find the page you’re looking for.
+          These tracks are coming as they do.
         </p>
-        <Button href="/" variant="secondary" className="mt-4">
+        <Button href="/" variant="secondary" className="m-4">
           Go back home
         </Button>
+        <Image
+          src={src}
+          alt=""
+          sizes="(min-width: 1024px) 32rem, 20rem"
+          className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+        />
       </div>
     </Container>
   );

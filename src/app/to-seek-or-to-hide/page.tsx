@@ -20,19 +20,21 @@ function SocialLink({
   href,
   children,
   icon: Icon,
+  rel = "noreferrer",
 }: {
   className?: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
   children: React.ReactNode;
+  rel?: string;
 }) {
   return (
     <li className={clsx(className, "flex mt-4")}>
       <Link
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-fuchsia-500 dark:text-zinc-200 dark:hover:text-fuchsia-500"
-        target="_blank"
-        rel="noreferrer"
+        target={rel === "noreferrer" ? "_blank" : undefined}
+        rel={rel}
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-fuchsia-500" />
         <span className="ml-4">{children}</span>
@@ -128,8 +130,11 @@ export default function ToSeekOrToHide() {
         </div>
       </div>
 
-      <div className="mt-12 max-w-[800px]">
-        <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+      <div className="mt-4 max-w-[800px]">
+        <h2
+          id="tracklist"
+          className="pt-8 text-lg font-semibold text-zinc-800 dark:text-zinc-100"
+        >
           Tracklist
         </h2>
         <ol className="list-decimal pl-8 py-2 dark:text-zinc-200">
@@ -213,6 +218,9 @@ function Links() {
         Listen on Spotify (coming soon)
       </SocialLink>
       */}
+      <SocialLink href="#tracklist" icon={SoundcloudIcon} rel="internal">
+        Tracklist
+      </SocialLink>
     </ul>
   );
 }
