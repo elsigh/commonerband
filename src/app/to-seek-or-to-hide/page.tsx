@@ -47,7 +47,46 @@ export const metadata: Metadata = {
     'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl in Fall 2024',
 };
 
-export default function About() {
+const trackList = [
+  {
+    title: "Bad Weather's Coming",
+    href: "bad-weathers-coming",
+  },
+  {
+    title: "Cruel Fashion",
+    href: "cruel-fashion",
+  },
+  {
+    title: "My Default Heart",
+    href: "my-default-heart",
+  },
+  {
+    title: "Tell Mr. Massey",
+    href: "tell-mr-massey",
+  },
+  {
+    title: "Defensible",
+    href: "defensible",
+  },
+  {
+    title: "Passer Through",
+    href: "passer-through",
+  },
+  {
+    title: "Stare Down Sally",
+    href: "stare-down-sally",
+  },
+  {
+    title: "Commie Blood",
+    href: "commie-blood",
+  },
+  {
+    title: "That You Don't",
+    href: "that-you-dont",
+  },
+];
+
+export default function ToSeekOrToHide() {
   return (
     <Container className="md:mt-12">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -88,6 +127,25 @@ export default function About() {
           <Links />
         </div>
       </div>
+
+      <div className="mt-12 max-w-[800px]">
+        <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+          Tracklist
+        </h2>
+        <ol className="list-decimal pl-8 py-2 dark:text-zinc-200">
+          {trackList.map((track) => (
+            <li key={track.href}>
+              <Link
+                href={`/to-seek-or-to-hide/${track.href}`}
+                className="transition underline dark:hover:text-fuchsia-500"
+              >
+                {track.title}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+
       <div className="mt-12 max-w-[800px]">
         <div className="mt-12">
           <Image
