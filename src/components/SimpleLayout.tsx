@@ -17,7 +17,7 @@ export function SimpleLayout({
       <header className="max-w-2xl">
         {backLink && (
           <Link
-            href="/to-seek-or-to-hide"
+            href="/to-seek-or-to-hide#tracklist"
             className=" dark:text-zinc-200  dark:hover:text-zinc-500"
           >
             ← To Seek or To Hide

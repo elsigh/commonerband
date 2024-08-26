@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     //reactCompiler: false,
     //turbo: true,
   },
+  devIndicators: {
+    appIsrStatus: false
+  }
 };
 
 // @ts-ignore
