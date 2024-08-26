@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -14,6 +14,7 @@ import labelSide1 from "@/images/seek-hide-label-side1.png";
 import labelSide2 from "@/images/seek-hide-label-side2.png";
 import interiorLyrics1 from "@/images/seek-hide-interior-lyrics1.jpg";
 import interiorLyrics2 from "@/images/seek-hide-interior-lyrics2.jpg";
+import { TrackListImage } from "@/components/TrackListImage";
 
 function SocialLink({
   className,
@@ -49,42 +50,59 @@ export const metadata: Metadata = {
     'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl in Fall 2024',
 };
 
-const trackList = [
+export type Track = {
+  title: string;
+  href: string;
+  coords: number[]; // [x, y, width, height]
+};
+
+const trackHeight = 18;
+const trackList: Track[] = [
   {
     title: "Bad Weather's Coming",
     href: "bad-weathers-coming",
+    coords: [110, 72, 147, trackHeight],
   },
   {
     title: "Cruel Fashion",
     href: "cruel-fashion",
+    coords: [83, 92, 95, trackHeight],
   },
   {
     title: "My Default Heart",
     href: "my-default-heart",
+    coords: [70, 113, 113, trackHeight],
   },
   {
     title: "Tell Mr. Massey",
     href: "tell-mr-massey",
+    coords: [58, 133, 108, trackHeight],
   },
   {
     title: "Defensible",
     href: "defensible",
+    coords: [48, 152, 70, trackHeight],
   },
+
   {
     title: "Passer Through",
     href: "passer-through",
+    coords: [110, 72, 147, trackHeight],
   },
   {
     title: "Stare Down Sally",
     href: "stare-down-sally",
+    coords: [83, 92, 95, trackHeight],
   },
   {
     title: "Commie Blood",
     href: "commie-blood",
+    coords: [70, 113, 113, trackHeight],
   },
   {
     title: "That You Don't",
     href: "that-you-dont",
+    coords: [58, 133, 108, trackHeight],
   },
 ];
 
@@ -133,11 +151,17 @@ export default function ToSeekOrToHide() {
       <div className="mt-4 max-w-[800px]">
         <h2
           id="tracklist"
-          className="pt-8 text-lg font-semibold text-zinc-800 dark:text-zinc-100"
+          className="mt-12 text-lg font-semibold text-zinc-800 dark:text-zinc-100"
         >
           Tracklist
         </h2>
-        <ol className="list-decimal pl-8 py-2 dark:text-zinc-200">
+
+        <div className="mt-4 grid grid-cols-2">
+          <TrackListImage src={labelSide1} trackList={trackList.slice(0, 5)} />
+          <TrackListImage src={labelSide2} trackList={trackList.slice(5, 9)} />
+        </div>
+
+        <ol className="list-decimal mt-8 pl-8 dark:text-zinc-200">
           {trackList.map((track) => (
             <li key={track.href}>
               <Link
@@ -152,7 +176,13 @@ export default function ToSeekOrToHide() {
       </div>
 
       <div className="mt-12 max-w-[800px]">
-        <div className="mt-12">
+        <h2
+          id="tracklist"
+          className="mt-12 text-lg font-semibold text-zinc-800 dark:text-zinc-100"
+        >
+          Lyrics
+        </h2>
+        <div className="mt-8">
           <Image
             src={interiorLyrics1}
             alt=""
@@ -160,26 +190,12 @@ export default function ToSeekOrToHide() {
             className="aspect-square rounded-2xl bg-zinc-100  dark:bg-zinc-800"
           />
         </div>
-        <div className="mt-12">
+        <div className="mt-8">
           <Image
             src={interiorLyrics2}
             alt=""
             sizes="(min-width: 1024px) 32rem, 20rem"
             className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-          />
-        </div>
-        <div className="mt-12 grid grid-cols-2">
-          <Image
-            src={labelSide1}
-            alt=""
-            sizes="(min-width: 1024px) 32rem, 20rem"
-            className="aspect-square rounded-l-2xl bg-zinc-100  dark:bg-zinc-800"
-          />
-          <Image
-            src={labelSide2}
-            alt=""
-            sizes="(min-width: 1024px) 32rem, 20rem"
-            className="aspect-square rounded-r-2xl bg-zinc-100  dark:bg-zinc-800"
           />
         </div>
       </div>
