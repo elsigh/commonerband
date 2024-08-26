@@ -10,10 +10,7 @@ function NavLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link
-      href={href}
-      className="transition hover:text-fuchsia-500 dark:hover:text-fuchsia-400"
-    >
+    <Link href={href} className="transition text-zinc-400 hover:text-zinc-500">
       {children}
     </Link>
   );

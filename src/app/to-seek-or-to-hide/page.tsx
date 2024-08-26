@@ -33,7 +33,7 @@ function SocialLink({
     <li className={clsx(className, "flex mt-4")}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-fuchsia-500 dark:text-zinc-200 dark:hover:text-fuchsia-500"
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-zinc-500 dark:text-zinc-200 dark:hover:text-zinc-500"
         target={rel === "noreferrer" ? "_blank" : undefined}
         rel={rel}
       >
@@ -41,6 +41,18 @@ function SocialLink({
         <span className="ml-4">{children}</span>
       </Link>
     </li>
+  );
+}
+
+function TrackListIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 4a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 1a1 1 0 011-1h10a1 1 0 011 1v2a1 1 0 01-1 1H7a1 1 0 01-1-1V5zm0 5a1 1 0 011-1h10a1 1 0 011 1v2a1 1 0 01-1 1H7a1 1 0 01-1-1v-2zm0 5a1 1 0 011-1h10a1 1 0 011 1v2a1 1 0 01-1 1H7a1 1 0 01-1-1v-2z"
+      />
+    </svg>
   );
 }
 
@@ -166,7 +178,7 @@ export default function ToSeekOrToHide() {
             <li key={track.href}>
               <Link
                 href={`/to-seek-or-to-hide/${track.href}`}
-                className="transition underline dark:hover:text-fuchsia-500"
+                className="transition underline dark:hover:text-zinc-500"
               >
                 {track.title}
               </Link>
@@ -234,7 +246,7 @@ function Links() {
         Listen on Spotify (coming soon)
       </SocialLink>
       */}
-      <SocialLink href="#tracklist" icon={SoundcloudIcon} rel="internal">
+      <SocialLink href="#tracklist" icon={TrackListIcon} rel="internal">
         Tracklist
       </SocialLink>
     </ul>

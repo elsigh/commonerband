@@ -156,8 +156,8 @@ function NavItem({
         className={clsx(
           "relative block px-3 py-2 transition",
           isActive
-            ? "text-fuchsia-500 dark:text-fuchsia-400"
-            : "hover:text-fuchsia-500 dark:hover:text-fuchsia-400",
+            ? "text-zinc-500 dark:text-zinc-400"
+            : "hover:text-zinc-500 dark:hover:text-zinc-400",
         )}
       >
         {children}

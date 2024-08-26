@@ -31,14 +31,14 @@ export default async function Home() {
 
               <div className="mt-4 flex gap-6 items-end">
                 <SocialLink
-                  href="https://facebook.com/commonerband"
-                  aria-label="Follow on Facebook"
-                  icon={FacebookIcon}
-                />
-                <SocialLink
                   href="#"
                   aria-label="Follow on Instagram"
                   icon={InstagramIcon}
+                />
+                <SocialLink
+                  href="https://facebook.com/commonerband"
+                  aria-label="Follow on Facebook"
+                  icon={FacebookIcon}
                 />
               </div>
               <ol className="mt-12 text-base text-zinc-600 dark:text-zinc-400 space-y-1">
@@ -47,7 +47,7 @@ export default async function Home() {
                     <strong>"To Seek or To Hide"</strong>
                     <span className="ml-4">Coming soon (Oct 1, 2024)</span>
                   </h3>
-                  <div className="mt-4 flex gap-6 items-end">
+                  <div className="mt-4 flex gap-6 items-center">
                     <Button
                       type="submit"
                       className="flex-none"
