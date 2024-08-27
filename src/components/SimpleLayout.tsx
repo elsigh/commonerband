@@ -18,7 +18,7 @@ export function SimpleLayout({
         {backLink && (
           <Link
             href="/to-seek-or-to-hide#tracklist"
-            className=" dark:text-zinc-200  dark:hover:text-zinc-500"
+            className="text-zinc-400 hover:text-zinc-200"
           >
             ← To Seek or To Hide
           </Link>
@@ -26,11 +26,7 @@ export function SimpleLayout({
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
           {title}
         </h1>
-        {intro && (
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {intro}
-          </p>
-        )}
+        {intro && <p className="mt-6 text-base text-zinc-400">{intro}</p>}
       </header>
       {children && <div className="mt-12">{children}</div>}
     </Container>

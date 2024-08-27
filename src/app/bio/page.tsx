@@ -24,9 +24,9 @@ function SocialLink({
     <li className={clsx(className, "flex")}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-zinc-500 dark:text-zinc-200 dark:hover:text-zinc-500"
+        className="group flex text-sm font-medium text-zinc-400 transition hover:text-zinc-200"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-fuchsia-500" />
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-orange-700" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -68,7 +68,7 @@ export default function About() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             With a sound
           </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <div className="mt-6 space-y-7 text-base text-zinc-400">
             <p>
               that would love to wade in a stream with Gillian Welch and Townes
               Van Zandt, Commoner's first record "When No One's Looking" strikes

@@ -22,9 +22,9 @@ export default function Song({ song }: { song: SongForSongPage }) {
         src={song.soundcloud}
       />
       <div className="mt-8">
-        <div className="text-right">
+        <div className="text-right mb-8 md:mb-0">
           <Link
-            className="hover:underline dark:text-zinc-200"
+            className="hover:underline text-zinc-400 hover:text-zinc-200"
             href={song.songbook}
           >
             Chords and Lyrics ↗

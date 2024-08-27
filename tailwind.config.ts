@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "warm-brown": "#E6D2C2",
-        "fucshia": "#E6D2C2"
+        //"terracotta": "#C45D3E",
+        //"fucshia": "#C45D3E"
       }
     },
     fontSize: {

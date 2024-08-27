@@ -117,11 +117,9 @@ function MobileNavigation(
       >
         <div className="flex flex-row-reverse items-center justify-between">
           <PopoverButton aria-label="Close menu" className="-m-1 p-1">
-            <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+            <CloseIcon className="h-6 w-6 text-zinc-400" />
           </PopoverButton>
-          <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-            Go
-          </h2>
+          <h2 className="text-sm font-medium text-zinc-400">Go</h2>
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
@@ -155,14 +153,12 @@ function NavItem({
         href={href}
         className={clsx(
           "relative block px-3 py-2 transition",
-          isActive
-            ? "text-zinc-500 dark:text-zinc-400"
-            : "hover:text-zinc-500 dark:hover:text-zinc-400",
+          isActive ? "text-orange-700" : "hover:text-orange-700",
         )}
       >
         {children}
         {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-fuchsia-500/0 via-fuchsia-500/40 to-fuchsia-500/0 dark:from-fuchsia-400/0 dark:via-fuchsia-400/40 dark:to-fuchsia-400/0" />
+          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-orange-700/0 via-orange-700/40 to-orange-700/0 dark:from-orange-500/0 dark:via-orange-500/40 dark:to-orange-500/0" />
         )}
       </Link>
     </li>

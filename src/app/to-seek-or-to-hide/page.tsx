@@ -33,11 +33,11 @@ function SocialLink({
     <li className={clsx(className, "flex mt-4")}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-zinc-500 dark:text-zinc-200 dark:hover:text-zinc-500"
+        className="group flex text-sm font-medium transition text-zinc-400  hover:text-zinc-200"
         target={rel === "noreferrer" ? "_blank" : undefined}
         rel={rel}
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-fuchsia-500" />
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-zinc-200" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -136,7 +136,7 @@ export default function ToSeekOrToHide() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             To Seek or To Hide
           </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <div className="mt-6 space-y-7 text-base text-zinc-400">
             <p>
               Commoner's second record, "To Seek or To Hide", will be released
               on 10" vinyl in Fall 2024.
@@ -163,7 +163,7 @@ export default function ToSeekOrToHide() {
       <div className="mt-4 max-w-[800px]">
         <h2
           id="tracklist"
-          className="mt-12 text-lg font-semibold text-zinc-800 dark:text-zinc-100"
+          className="mt-12 text-lg font-semibold text-zinc-100"
         >
           Tracklist
         </h2>
@@ -173,12 +173,12 @@ export default function ToSeekOrToHide() {
           <TrackListImage src={labelSide2} trackList={trackList.slice(5, 9)} />
         </div>
 
-        <ol className="list-decimal mt-8 pl-8 dark:text-zinc-200">
+        <ol className="list-decimal mt-8 pl-8 text-zinc-400">
           {trackList.map((track) => (
             <li key={track.href}>
               <Link
                 href={`/to-seek-or-to-hide/${track.href}`}
-                className="transition underline dark:hover:text-zinc-500"
+                className="transition underline hover:text-zinc-200"
               >
                 {track.title}
               </Link>
@@ -190,7 +190,7 @@ export default function ToSeekOrToHide() {
       <div className="mt-12 max-w-[800px]">
         <h2
           id="tracklist"
-          className="mt-12 text-lg font-semibold text-zinc-800 dark:text-zinc-100"
+          className="mt-12 text-lg font-semibold text-zinc-100"
         >
           Lyrics
         </h2>

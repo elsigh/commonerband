@@ -25,7 +25,7 @@ export default async function Home() {
               <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                 Commoner
               </h1>
-              <p className="text-base text-zinc-600 dark:text-zinc-400">
+              <p className="text-base text-zinc-400">
                 is an Americana-sounding band from San Francisco.
               </p>
 
@@ -41,7 +41,7 @@ export default async function Home() {
                   icon={FacebookIcon}
                 />
               </div>
-              <ol className="mt-12 text-base text-zinc-600 dark:text-zinc-400 space-y-1">
+              <ol className="mt-12 text-base text-zinc-400 space-y-1">
                 <li>
                   <h3>
                     <strong>"To Seek or To Hide"</strong>
@@ -176,20 +176,18 @@ function Newsletter() {
       action="/thank-you"
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
     >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 className="flex text-sm font-semibold text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Stay up to date</span>
       </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Find out when we're playing.
-      </p>
+      <p className="mt-2 text-sm text-zinc-400">Find out when we're playing.</p>
       <div className="mt-6 flex">
         <input
           type="email"
           placeholder="Email"
           aria-label="Email address"
           required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-fuchsia-500 focus:outline-none focus:ring-4 focus:ring-fuchsia-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-fuchsia-400 dark:focus:ring-fuchsia-400/10"
+          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-orange-900 focus:outline-none focus:ring-4 focus:ring-orange-700/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-orange-700 dark:focus:ring-orange-500/10"
         />
         <Button type="submit" className="ml-4 flex-none">
           Join
