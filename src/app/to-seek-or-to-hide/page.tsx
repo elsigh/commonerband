@@ -5,7 +5,11 @@ import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 
-import { SoundcloudIcon, AppleIcon } from "@/components/SocialIcons";
+import {
+  SoundcloudIcon,
+  AppleIcon,
+  SpotifyIcon,
+} from "@/components/SocialIcons";
 import { Button } from "@/components/Button";
 
 import frontCover from "@/images/seek-hide-cover-front.jpg";
@@ -228,6 +232,12 @@ function Links() {
         Pre-order 10" vinyl
       </Button>
       <SocialLink
+        href="https://open.spotify.com/album/21Zk4Cig8N0aI45jJxy4VG"
+        icon={SpotifyIcon}
+      >
+        Listen on Spotify
+      </SocialLink>
+      <SocialLink
         href="https://soundcloud.com/commoner/sets/to-seek-or-to-hide"
         aria-label="Listen on Soundcloud"
         icon={SoundcloudIcon}
@@ -241,11 +251,6 @@ function Links() {
       >
         Listen on Apple Music
       </SocialLink>
-      {/*
-      <SocialLink href="#" icon={SpotifyIcon}>
-        Listen on Spotify (coming soon)
-      </SocialLink>
-      */}
       <SocialLink href="#tracklist" icon={TrackListIcon} rel="internal">
         Tracklist
       </SocialLink>

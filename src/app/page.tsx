@@ -45,7 +45,9 @@ export default async function Home() {
                 <li>
                   <h3>
                     <strong>"To Seek or To Hide"</strong>
-                    <span className="ml-4">Coming soon (Oct 1, 2024)</span>
+                    <span className="ml-4">
+                      Stream it now, vinyl coming soon
+                    </span>
                   </h3>
                   <div className="mt-4 flex gap-6 items-center">
                     <Button
@@ -57,13 +59,12 @@ export default async function Home() {
                     >
                       Pre-order 10" vinyl
                     </Button>
-                    {/*
+
                     <SocialLink
-                      href="#"
-                      aria-label="Listen on Spotify (coming soon)"
+                      href="https://open.spotify.com/album/1EvZujvFSt2laJhFxLh9hf"
+                      aria-label="Listen on Spotify"
                       icon={SpotifyIcon}
                     />
-                    */}
                     <SocialLink
                       href="https://soundcloud.com/commoner/sets/to-seek-or-to-hide"
                       aria-label="Listen on Soundcloud"
@@ -94,7 +95,7 @@ export default async function Home() {
                   </h3>
                   <div className="mt-4 flex gap-6 items-end">
                     <SocialLink
-                      href="https://open.spotify.com/album/1EvZujvFSt2laJhFxLh9hf"
+                      href="https://open.spotify.com/album/21Zk4Cig8N0aI45jJxy4VG"
                       aria-label="Listen on Spotify"
                       icon={SpotifyIcon}
                     />
