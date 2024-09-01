@@ -61,7 +61,7 @@ export default async function Home() {
                     </Button>
 
                     <SocialLink
-                      href="https://open.spotify.com/album/1EvZujvFSt2laJhFxLh9hf"
+                      href="https://open.spotify.com/album/21Zk4Cig8N0aI45jJxy4VG"
                       aria-label="Listen on Spotify"
                       icon={SpotifyIcon}
                     />
@@ -95,7 +95,7 @@ export default async function Home() {
                   </h3>
                   <div className="mt-4 flex gap-6 items-end">
                     <SocialLink
-                      href="https://open.spotify.com/album/21Zk4Cig8N0aI45jJxy4VG"
+                      href="https://open.spotify.com/album/1EvZujvFSt2laJhFxLh9hf"
                       aria-label="Listen on Spotify"
                       icon={SpotifyIcon}
                     />
