@@ -2,42 +2,44 @@ import SongPage, { type SongForSongPage } from "@/components/SongPage";
 import type { Metadata } from "next";
 
 const song: SongForSongPage = {
-  title: "Commie Blood",
+  title: "Tell Mr. Massey",
   soundcloud:
-    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1799727982%3Fsecret_token%3Ds-FCmqpxHoLXH&color=%2368447c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-  songbook: "https://songbook.studio/song/-MGGFOG12va9BuQzt6A6/commie-blood",
-  lyrics: `Falling forward in slow waves
-The crash before the calmest days
-It sparks at the end of
-It sparks at the end of a fuse.
+    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1799727997&color=%2368447c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+  songbook: "https://songbook.studio/song/-MGGFON7wg0fjknY7JYz/tell-mr-massey",
+  lyrics: `Tell Mister Massey
+Now he's only got himself
+Is he willing trust his own to
+paint a picture of perfect health
 
-Pull and push down 101
-A constant pour of frustration
-Turn signals over
-Turn signals overused
+Or that 45
+Strapped to his thigh
 
-You woke up with a New York attitude
-Like there's nothing cooler behind the moon
-Posing for a portrait that no one's waiting for
-The frame'll cost you extra
-So cut your long story short
+If I could see your weaknesses
+Color-coded, bar-charted
+Hanging down beneath your chin
 
-A little steam goes a long way
-Commie blood it bleeds coal gray
-Nothing at the end of
-It's dry up at the end of your roots
+Could you love me if you knew
+how off-course and black and blue
+this ship has sailed more than a few times into 
+Reckless abandon
+and the friends that you never made
+haunt and cling to you
+from dreams that never came
 
-Grafted to a barb-wire vine
-Wysteria in bloom and decline
-Crafts & arts & arrows
-the baby sparrows choke and sing it out
+True as pie
+what a fool am I
 
-You woke up with a New York attitude
-Like there's nothing cooler behind the moon
-The broken deal you're using 
-to keep the fire new
-Never issue dull reports
-So cut your long story short`,
+If I could see your weaknesses
+color-coded, bar-charted
+hanging under your chiseled chin
+
+Could you love me if you knew
+how off-course and black and blue
+this ship has sailed more than a few times into 
+
+Silent days and silent nights
+echo forth and back 
+and right in front of you`,
 };
 
 export const metadata: Metadata = {

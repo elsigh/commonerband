@@ -21,7 +21,7 @@ export function TrackListImage({
           src={src}
           alt="Commoner - To Seek or to Hide Album Label Side 1"
           sizes="(min-width: 1024px) 32rem, 20rem"
-          className="aspect-square rounded-l-2xl bg-zinc-100  dark:bg-zinc-800"
+          className="aspect-square rounded-2xl bg-zinc-100  dark:bg-zinc-800"
         />
         {trackList.map((track) => (
           <Link

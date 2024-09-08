@@ -172,7 +172,7 @@ export default function ToSeekOrToHide() {
           Tracklist
         </h2>
 
-        <div className="mt-4 grid grid-cols-2">
+        <div className="mt-4 grid grid-cols-2 gap-x-2">
           <TrackListImage src={labelSide1} trackList={trackList.slice(0, 5)} />
           <TrackListImage src={labelSide2} trackList={trackList.slice(5, 9)} />
         </div>
