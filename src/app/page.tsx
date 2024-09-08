@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
@@ -120,10 +121,10 @@ export default async function Home() {
               </ol>
             </div>
           </div>
-
+          {/* 
           <div className="space-y-10 lg:pr-52">
             <Newsletter />
-          </div>
+          </div>*/}
         </div>
       </Container>
     </>
@@ -171,10 +172,49 @@ function SocialLink({
   );
 }
 
+export async function submitEmail(formData: FormData) {
+  const email = formData.get("email") as string;
+
+  try {
+    const response = await fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLSd02hwbAMI9JjX4vgmwveHWiM8xOIccYOI_N4V73-ksb1a_ow/formResponse",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          "entry.1905632543": email,
+          email,
+        }),
+      },
+    );
+
+    return response;
+  } catch (error) {
+    console.error("Error submitting email:", error);
+    throw new Error("Error submitting email.");
+  }
+}
+
 function Newsletter() {
+  const handleSubmit = async (formData: FormData) => {
+    "use server";
+    try {
+      const response = await submitEmail(formData);
+      if (response.ok) {
+        redirect("/thank-you");
+      } else {
+        redirect("/error");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <form
-      action="/thank-you"
+      action={handleSubmit}
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
     >
       <h2 className="flex text-sm font-semibold text-zinc-100">
@@ -188,6 +228,7 @@ function Newsletter() {
           placeholder="Email"
           aria-label="Email address"
           required
+          autoComplete="off"
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-orange-900 focus:outline-none focus:ring-4 focus:ring-orange-700/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-orange-700 dark:focus:ring-orange-500/10"
         />
         <Button type="submit" className="ml-4 flex-none">
