@@ -28,6 +28,7 @@
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.0",
     "fast-glob": "^3.2.11",
+    "fs": "0.0.1-security",
     "google-auth-library": "^9.14.1",
     "google-spreadsheet": "^4.1.4",
     "next": "15.0.0-canary.145",
