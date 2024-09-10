@@ -24,7 +24,11 @@ export default function OGImage({
       <img
         src={`${PROTOCOL_AND_HOST}/${song.img}`}
         alt=""
-        style={{ objectFit: "cover", height: "100%", width: "100%" }}
+        style={{
+          objectFit: "cover",
+          height: song.size.height,
+          width: song.size.width,
+        }}
       />
       <div
         style={{
