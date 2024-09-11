@@ -10,10 +10,12 @@ const song = {
   },
 };
 
+export const runtime = "edge";
 export const alt = `${song.title} by Commoner`;
-
-export const size = song.size;
-
+export const size = {
+  width: 1200,
+  height: 630,
+};
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
