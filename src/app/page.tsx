@@ -6,6 +6,7 @@ import { Container } from "@/components/Container";
 
 import SeekHideCoverFront from "@/images/seek-hide-cover-front.jpg";
 import WhenNoOnesLookingCoverFront from "@/images/When-No-Ones-Looking.jpg";
+import FlyerRelease from "@/images/flyer-release-nov15.jpg";
 
 import {
   AppleIcon,
@@ -30,7 +31,7 @@ export default async function Home() {
                 is an Americana-sounding band from San Francisco.
               </p>
 
-              <div className="mt-4 flex gap-6 items-end">
+              <div className="mt-4 flex gap-4 items-end">
                 <SocialLink
                   href="https://www.instagram.com/commonerband"
                   aria-label="Follow on Instagram"
@@ -46,10 +47,26 @@ export default async function Home() {
                 <li>
                   <h3>
                     <strong>"To Seek or To Hide"</strong>
-                    <span className="ml-4">
-                      Stream it now, vinyl coming soon
-                    </span>
+                    <span className="ml-4">Stream it now!</span>
                   </h3>
+                  <div>
+                    <Link
+                      className="text-orange-700 underline"
+                      href="https://www.facebook.com/events/1045450053659959"
+                    >
+                      <strong>
+                        Nov. 15 Release Show at The Lost Church in North Beach!
+                      </strong>
+                      <br />
+                      <Image
+                        priority
+                        alt=""
+                        src={FlyerRelease}
+                        sizes="(min-width: 600px) 32rem, 20rem"
+                        className="mt-3 aspect-square bg-zinc-100 object-cover dark:bg-zinc-800"
+                      />
+                    </Link>
+                  </div>
                   <div className="mt-4 flex gap-6 items-center">
                     <Button
                       type="submit"
