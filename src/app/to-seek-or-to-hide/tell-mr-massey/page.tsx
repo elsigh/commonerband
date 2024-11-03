@@ -45,7 +45,7 @@ and right in front of you`,
 export const metadata: Metadata = {
   title: `${song.title} by Commoner`,
   description:
-    'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl in Fall 2024',
+    'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl on Nov. 15, 2024',
 };
 
 export default function Song() {

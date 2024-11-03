@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -63,7 +63,7 @@ function TrackListIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 export const metadata: Metadata = {
   title: "To Seek or To Hide",
   description:
-    'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl in Fall 2024',
+    'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl on Nov. 15, 2024',
 };
 
 export type Track = {
@@ -143,7 +143,7 @@ export default function ToSeekOrToHide() {
           <div className="mt-6 space-y-7 text-base text-zinc-400">
             <p>
               Commoner's second record, "To Seek or To Hide", will be released
-              on 10" vinyl in Fall 2024.
+              on 10" vinyl on Nov. 15, 2024.
             </p>
 
             <div className="lg:hidden  lg:pl-28">
