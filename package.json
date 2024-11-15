@@ -33,7 +33,7 @@
     "fs": "0.0.1-security",
     "google-auth-library": "^9.14.1",
     "google-spreadsheet": "^4.1.4",
-    "next": "15.0.3-canary.4",
+    "next": "15.0.4-canary.12",
     "next-themes": "^0.2.1",
     "react": "19.0.0-rc-603e6108-20241029",
     "react-dom": "19.0.0-rc-603e6108-20241029",
