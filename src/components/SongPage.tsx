@@ -9,6 +9,8 @@ export type SongForSongPage = {
   lyrics: string;
 };
 
+export const METADATA_DESCRIPTION = `Commoner's second record, "To Seek or To Hide", was released on 10" vinyl on Nov. 2024`;
+
 export default function Song({ song }: { song: SongForSongPage }) {
   return (
     <SimpleLayout title={song.title}>

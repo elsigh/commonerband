@@ -47,26 +47,9 @@ export default async function Home() {
                 <li>
                   <h3>
                     <strong>"To Seek or To Hide"</strong>
-                    <span className="ml-4">Stream it now!</span>
+                    <span className="ml-4">Released Nov 2024</span>
                   </h3>
-                  <div>
-                    <Link
-                      className="text-orange-700 underline"
-                      href="https://www.facebook.com/events/1045450053659959"
-                    >
-                      <strong>
-                        Nov. 15 Release Show at The Lost Church in North Beach!
-                      </strong>
-                      <br />
-                      <Image
-                        priority
-                        alt=""
-                        src={FlyerRelease}
-                        sizes="(min-width: 600px) 32rem, 20rem"
-                        className="mt-3 aspect-square bg-zinc-100 object-cover dark:bg-zinc-800"
-                      />
-                    </Link>
-                  </div>
+
                   <div className="mt-4 flex gap-6 items-center">
                     <Button
                       type="submit"
@@ -75,7 +58,7 @@ export default async function Home() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Pre-order 10" vinyl
+                      Buy the 10" vinyl
                     </Button>
 
                     <SocialLink

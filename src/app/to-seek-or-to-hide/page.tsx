@@ -19,6 +19,7 @@ import labelSide2 from "@/images/seek-hide-label-side2.png";
 import interiorLyrics1 from "@/images/seek-hide-interior-lyrics1.jpg";
 import interiorLyrics2 from "@/images/seek-hide-interior-lyrics2.jpg";
 import { TrackListImage } from "@/components/TrackListImage";
+import { METADATA_DESCRIPTION } from "@/components/SongPage";
 
 function SocialLink({
   className,
@@ -62,8 +63,7 @@ function TrackListIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 
 export const metadata: Metadata = {
   title: "To Seek or To Hide",
-  description:
-    'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl on Nov. 15, 2024',
+  description: METADATA_DESCRIPTION,
 };
 
 export type Track = {
@@ -229,7 +229,7 @@ function Links() {
         target="_blank"
         rel="noreferrer"
       >
-        Pre-order 10" vinyl
+        Buy the 10" vinyl
       </Button>
       <SocialLink
         href="https://open.spotify.com/album/21Zk4Cig8N0aI45jJxy4VG"

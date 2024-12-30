@@ -1,12 +1,15 @@
-//const MillionLint = require("@million/lint");
+
+import type { NextConfig } from 'next';
 //import { withRouteBundleAnalyzer } from "@vercel/route-bundle-analyzer/plugins/next";
-import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     ppr: true,
     //reactCompiler: true,
+    turbo: {
+      unstablePersistentCaching: true,
+    },
   },
   devIndicators: {
     appIsrStatus: false

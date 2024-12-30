@@ -1,4 +1,7 @@
-import SongPage, { type SongForSongPage } from "@/components/SongPage";
+import SongPage, {
+  METADATA_DESCRIPTION,
+  type SongForSongPage,
+} from "@/components/SongPage";
 import type { Metadata } from "next";
 
 const song: SongForSongPage = {
@@ -48,8 +51,7 @@ The misfits make the most of your sweet time`,
 
 export const metadata: Metadata = {
   title: `${song.title} by Commoner`,
-  description:
-    'Commoner\'s second record, "To Seek or To Hide", will be released on 10" vinyl Nov. 15, 2024',
+  description: METADATA_DESCRIPTION,
 };
 
 export default function Song() {
