@@ -1,0 +1,42 @@
+fileType: momentic/test
+id: 55750a9e-8c60-4a82-aa26-a8403a88d896
+name: commoner-band-1
+baseUrl: http://localhost:3000
+schemaVersion: 1.0.19
+advanced:
+  viewport:
+    width: 1920
+    height: 1080
+  disableAICaching: false
+  browserType: Chromium
+retries: 0
+steps:
+  - id: d3e0cf61-0d49-41ef-b817-6ca2ff03c95a
+    type: PRESET_ACTION
+    command:
+      id: 99bb738f-9475-47d1-ac65-4e265f861393
+      type: CLICK
+      target:
+        type: description
+        elementDescriptor: The link to "To Seek or To Hide" in the header
+  - id: 71386093-9fa4-4ce4-be8d-bed6f529974f
+    type: PRESET_ACTION
+    command:
+      id: 737596b8-6528-4c9e-bd45-d24fb36f12b0
+      type: AI_ASSERTION
+      assertion: There is now a link to a "Tracklist" on the new page
+  - id: 55673a7b-abcf-4d5c-aad7-effff88cac6f
+    type: PRESET_ACTION
+    command:
+      id: 746d33ac-7eff-4300-ae11-b13fba609a11
+      type: CLICK
+      target:
+        type: description
+        elementDescriptor: Click to go to the page for the song "Tell Mr. Massey"
+  - id: 05800db4-5360-48e2-b790-a95c014fb92a
+    type: PRESET_ACTION
+    command:
+      id: 7b6462a3-e910-4436-a7f3-f28dd9a021b5
+      type: AI_ASSERTION
+      assertion: The lyrics for the song are present on the page "Could you love me if
+        you knew"
