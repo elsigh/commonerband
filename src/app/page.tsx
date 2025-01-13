@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 
 import SeekHideCoverFront from "@/images/seek-hide-cover-front.jpg";
 import WhenNoOnesLookingCoverFront from "@/images/When-No-Ones-Looking.jpg";
-import FlyerRelease from "@/images/flyer-release-nov15.jpg";
 
 import {
   AppleIcon,

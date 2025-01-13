@@ -1,5 +1,5 @@
 import { Container } from "@/components/Container";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export function SimpleLayout({
   title,

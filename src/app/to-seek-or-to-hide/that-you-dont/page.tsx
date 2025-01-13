@@ -13,7 +13,7 @@ const song: SongForSongPage = {
 seem to wear out instead stretch and bend, recover
  
 It's a losing telephone poll
-Predict's that you stay under control
+Predicted you'd stay under control
 
 Send the newsletters it's a shame that you don't
 Kill our messengers with a kindness that won't
