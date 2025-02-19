@@ -1,6 +1,6 @@
 "use client";
 
-import type { Track } from "@/app/to-seek-or-to-hide/page";
+import type { Track } from "@/app/(main)/to-seek-or-to-hide/page";
 import Image, { type StaticImageData } from "next/image";
 import { Link } from "next-view-transitions";
 import { useState } from "react";
@@ -8,7 +8,10 @@ import { useState } from "react";
 export function TrackListImage({
   src,
   trackList,
-}: { src: StaticImageData; trackList: Track[] }) {
+}: {
+  src: StaticImageData;
+  trackList: Track[];
+}) {
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [debugMode, _setDebugMode] = useState(true);
   // https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-xaL9ZTvtJowmQdqTAvFYnbS0KW2tXQ.png"
