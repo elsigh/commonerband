@@ -16,12 +16,14 @@ export function SimpleLayout({
     <Container className="md:mt-8">
       <header className="max-w-2xl">
         {backLink && (
-          <Link
-            href="/to-seek-or-to-hide#tracklist"
-            className="text-zinc-400 hover:text-zinc-200"
-          >
-            ← To Seek or To Hide
-          </Link>
+          <div className="mb-8">
+            <Link
+              href="/to-seek-or-to-hide#tracklist"
+              className="text-zinc-400 hover:text-zinc-200"
+            >
+              ← To Seek or To Hide
+            </Link>
+          </div>
         )}
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
           {title}

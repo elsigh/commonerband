@@ -31,12 +31,11 @@ export default function Newsletter() {
   };
 
   useEffect(() => {
+    if (isSuccess === null) return;
     if (isSuccess === true) {
       redirect("/thank-you");
-    } else if (isSuccess === false) {
-      // Handle error, maybe redirect to /error or show a message
-      redirect("/error");
     }
+    throw new Error("Failed to join the newsletter.");
   }, [isSuccess]);
 
   return (
