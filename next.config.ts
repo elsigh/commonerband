@@ -1,5 +1,4 @@
-
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 //import { withRouteBundleAnalyzer } from "@vercel/route-bundle-analyzer/plugins/next";
 
 const nextConfig: NextConfig = {
@@ -11,9 +10,6 @@ const nextConfig: NextConfig = {
       unstablePersistentCaching: true,
     },
   },
-  devIndicators: {
-    appIsrStatus: false
-  }
 };
 
 module.exports = nextConfig;
