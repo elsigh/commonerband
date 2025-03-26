@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import {
   Popover,
   PopoverButton,
@@ -98,7 +98,7 @@ function MobileNavItem({
 }
 
 function MobileNavigation(
-  props: React.ComponentPropsWithoutRef<typeof Popover>,
+  props: React.ComponentPropsWithoutRef<typeof Popover>
 ) {
   return (
     <Popover {...props}>
@@ -153,7 +153,7 @@ function NavItem({
         href={href}
         className={clsx(
           "relative block px-3 py-2 transition",
-          isActive ? "text-orange-700" : "hover:text-orange-700",
+          isActive ? "text-orange-700" : "hover:text-orange-700"
         )}
       >
         {children}
@@ -212,7 +212,7 @@ export function Header() {
       const scrollY = clamp(
         window.scrollY,
         0,
-        document.body.scrollHeight - window.innerHeight,
+        document.body.scrollHeight - window.innerHeight
       );
 
       if (isInitial.current) {
@@ -264,7 +264,7 @@ export function Header() {
 
       setProperty(
         "--avatar-image-transform",
-        `translate3d(${x}rem, 0, 0) scale(${scale})`,
+        `translate3d(${x}rem, 0, 0) scale(${scale})`
       );
 
       const borderScale = 1 / (toScale / scale);

@@ -2,7 +2,7 @@
 
 import type { Track } from "@/app/(main)/to-seek-or-to-hide/page";
 import Image, { type StaticImageData } from "next/image";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { useState } from "react";
 
 export function TrackListImage({

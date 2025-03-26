@@ -1,6 +1,6 @@
 import { SimpleLayout } from "@/components/SimpleLayout";
 
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 export type SongForSongPage = {
   title: string;
