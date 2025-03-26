@@ -11,7 +11,8 @@ export default function ThankYou() {
   return (
     <SimpleLayout
       title="Thanks for subscribing."
-      intro="I’ll send you an email when we have a show, release new music. You can unsubscribe at any time, no hard feelings."
+      backLink={{ href: "/", label: "Home" }}
+      intro="I’ll send you an email when we have a show or release new music."
     />
   );
 }

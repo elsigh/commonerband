@@ -1,15 +1,20 @@
 import { Container } from "@/components/Container";
 import Link from "next/link";
 
+const defaultBacklink = {
+  href: "/to-seek-or-to-hide#tracklist",
+  label: "To Seek or To Hide",
+};
+
 export function SimpleLayout({
   title,
   intro,
-  backLink = true,
+  backLink = defaultBacklink,
   children,
 }: {
   title: string;
   intro?: string;
-  backLink?: boolean;
+  backLink?: { href: string; label: string };
   children?: React.ReactNode;
 }) {
   return (
@@ -18,10 +23,10 @@ export function SimpleLayout({
         {backLink && (
           <div className="mb-8">
             <Link
-              href="/to-seek-or-to-hide#tracklist"
+              href={backLink.href}
               className="text-zinc-400 hover:text-zinc-200"
             >
-              ← To Seek or To Hide
+              ← {backLink.label}
             </Link>
           </div>
         )}
