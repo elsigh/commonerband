@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build --turbopack",
     "start": "next start",
     "format": "npx @biomejs/biome format ./ --write",
     "lint": "npx @biomejs/biome lint ./ --apply",
@@ -33,7 +33,7 @@
     "fs": "0.0.1-security",
     "google-auth-library": "^9.14.1",
     "google-spreadsheet": "^4.1.4",
-    "next": "15.3.0-canary.23",
+    "next": "15.3.0-canary.33",
     "next-themes": "^0.2.1",
     "qrcode.react": "^4.2.0",
     "react": "19.0.0",
