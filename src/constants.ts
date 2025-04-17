@@ -1,0 +1,1 @@
+export const GIGS_LINK = 'https://www.facebook.com/commonerband/upcoming_hosted_events'; 
