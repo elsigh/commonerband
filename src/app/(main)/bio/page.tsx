@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 import { FacebookIcon, InstagramIcon } from "@/components/SocialIcons";
+import { GIGS_LINK } from "@/constants";
 
 import peopleInTheBand from "@/images/people-in-the-band.jpg";
 import image from "@/images/instruments-studio.jpg";
@@ -14,17 +15,23 @@ function SocialLink({
   href,
   children,
   icon: Icon,
+  target,
+  rel,
 }: {
   className?: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
   children: React.ReactNode;
+  target?: string;
+  rel?: string;
 }) {
   return (
     <li className={clsx(className, "flex")}>
       <Link
         href={href}
         className="group flex text-sm font-medium text-zinc-400 transition hover:text-zinc-200"
+        target={target}
+        rel={rel}
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-orange-700" />
         <span className="ml-4">{children}</span>
@@ -92,8 +99,10 @@ export default function About() {
         <div className="lg:pl-20">
           <ul>
             <SocialLink
-              href="https://facebook.com/commonerband"
+              href={GIGS_LINK}
               icon={FacebookIcon}
+              target="_blank"
+              rel="noreferrer"
             >
               Follow on Facebook
             </SocialLink>

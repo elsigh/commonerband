@@ -11,6 +11,7 @@ import clsx from "clsx";
 import { Container } from "@/components/Container";
 import { usePathname } from "next/navigation";
 import { useRef, useEffect } from "react";
+import { GIGS_LINK } from "@/constants";
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -84,13 +85,23 @@ function MoonIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 function MobileNavItem({
   href,
   children,
+  target,
+  rel,
 }: {
   href: string;
   children: React.ReactNode;
+  target?: string;
+  rel?: string;
 }) {
   return (
     <li>
-      <PopoverButton as={Link} href={href} className="block py-2">
+      <PopoverButton
+        as={Link}
+        href={href}
+        className="block py-2"
+        target={target}
+        rel={rel}
+      >
         {children}
       </PopoverButton>
     </li>
@@ -98,7 +109,7 @@ function MobileNavItem({
 }
 
 function MobileNavigation(
-  props: React.ComponentPropsWithoutRef<typeof Popover>
+  props: React.ComponentPropsWithoutRef<typeof Popover>,
 ) {
   return (
     <Popover {...props}>
@@ -128,7 +139,7 @@ function MobileNavigation(
             <MobileNavItem href="/to-seek-or-to-hide">
               To Seek or To Hide
             </MobileNavItem>
-            <MobileNavItem href="https://www.facebook.com/commonerband">
+            <MobileNavItem href={GIGS_LINK} target="_blank" rel="noreferrer">
               Shows
             </MobileNavItem>
           </ul>
@@ -141,9 +152,13 @@ function MobileNavigation(
 function NavItem({
   href,
   children,
+  target,
+  rel,
 }: {
   href: string;
   children: React.ReactNode;
+  target?: string;
+  rel?: string;
 }) {
   const isActive = usePathname() === href;
 
@@ -153,8 +168,10 @@ function NavItem({
         href={href}
         className={clsx(
           "relative block px-3 py-2 transition",
-          isActive ? "text-orange-700" : "hover:text-orange-700"
+          isActive ? "text-orange-700" : "hover:text-orange-700",
         )}
+        target={target}
+        rel={rel}
       >
         {children}
         {isActive && (
@@ -172,7 +189,9 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
         <NavItem href="/">Home</NavItem>
         <NavItem href="/bio">Bio</NavItem>
         <NavItem href="/to-seek-or-to-hide">To Seek or To Hide</NavItem>
-        <NavItem href="https://www.facebook.com/commonerband">Shows</NavItem>
+        <NavItem href={GIGS_LINK} target="_blank" rel="noreferrer">
+          Shows
+        </NavItem>
       </ul>
     </nav>
   );
@@ -212,7 +231,7 @@ export function Header() {
       const scrollY = clamp(
         window.scrollY,
         0,
-        document.body.scrollHeight - window.innerHeight
+        document.body.scrollHeight - window.innerHeight,
       );
 
       if (isInitial.current) {
@@ -264,7 +283,7 @@ export function Header() {
 
       setProperty(
         "--avatar-image-transform",
-        `translate3d(${x}rem, 0, 0) scale(${scale})`
+        `translate3d(${x}rem, 0, 0) scale(${scale})`,
       );
 
       const borderScale = 1 / (toScale / scale);

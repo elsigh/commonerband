@@ -15,7 +15,7 @@ export function TrackListImage({
   const [activeTrack, setActiveTrack] = useState<string | null>(null);
   const [debugMode, _setDebugMode] = useState(true);
   // https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-xaL9ZTvtJowmQdqTAvFYnbS0KW2tXQ.png"
-  console.debug("activeTrack", activeTrack);
+  //console.debug("activeTrack", activeTrack);
 
   return (
     <div className="relative max-w-md mx-auto">

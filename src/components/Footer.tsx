@@ -1,16 +1,26 @@
 import Link from "next/link";
 
 import { ContainerInner, ContainerOuter } from "@/components/Container";
+import { GIGS_LINK } from "@/constants";
 
 function NavLink({
   href,
   children,
+  target,
+  rel,
 }: {
   href: string;
   children: React.ReactNode;
+  target?: string;
+  rel?: string;
 }) {
   return (
-    <Link href={href} className="transition text-zinc-400 hover:text-zinc-500">
+    <Link
+      href={href}
+      className="transition text-zinc-400 hover:text-zinc-500"
+      target={target}
+      rel={rel}
+    >
       {children}
     </Link>
   );
@@ -27,7 +37,7 @@ export function Footer() {
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/bio">Bio</NavLink>
                 <NavLink href="/to-seek-or-to-hide">To Seek or To Hide</NavLink>
-                <NavLink href="https://www.facebook.com/commonerband">
+                <NavLink href={GIGS_LINK} target="_blank" rel="noreferrer">
                   Shows
                 </NavLink>
               </div>

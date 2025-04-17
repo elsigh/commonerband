@@ -15,6 +15,7 @@ import {
   InstagramIcon,
 } from "@/components/SocialIcons";
 import Newsletter from "@/components/Newsletter";
+import { GIGS_LINK } from "@/constants";
 
 export default async function Home() {
   return (
@@ -37,9 +38,11 @@ export default async function Home() {
                   icon={InstagramIcon}
                 />
                 <SocialLink
-                  href="https://facebook.com/commonerband"
+                  href={GIGS_LINK}
                   aria-label="Follow on Facebook"
                   icon={FacebookIcon}
+                  target="_blank"
+                  rel="noreferrer"
                 />
               </div>
               <ol className="mt-12 text-base text-zinc-400 space-y-1">
