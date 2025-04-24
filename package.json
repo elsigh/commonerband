@@ -17,7 +17,7 @@
     "@mapbox/rehype-prism": "^0.9.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "15.3.1-canary.12",
+    "@next/mdx": "15.4.0-canary.8",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.14.12",
     "@types/react": "19.1.2",
@@ -33,7 +33,7 @@
     "fs": "0.0.1-security",
     "google-auth-library": "^9.14.1",
     "google-spreadsheet": "^4.1.4",
-    "next": "15.3.1-canary.12",
+    "next": "15.4.0-canary.8",
     "next-themes": "^0.2.1",
     "qrcode.react": "^4.2.0",
     "react": "19.1.0",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-config-next": "15.3.1-canary.12",
+    "eslint-config-next": "15.4.0-canary.8",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "sharp": "0.33.1"
   },

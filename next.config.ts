@@ -6,7 +6,9 @@ const nextConfig: NextConfig = {
   experimental: {
     ppr: true,
     //reactCompiler: true,
-    turbopackPersistentCaching: true,
+    //turbopackPersistentCaching: true,
+    clientSegmentCache: true,
+    viewTransition: true,
   },
 };
 
