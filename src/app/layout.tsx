@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { unstable_ViewTransition as ViewTransition } from "react";
 
 import { Analytics } from "@vercel/analytics/react";
+import { ViewTransitionWrapper } from "./providers";
 
 import "@/styles/tailwind.css";
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased dark">
       <body className="flex h-full bg-zinc-50 dark:bg-black">
-        <ViewTransition>{children}</ViewTransition>
+        <ViewTransitionWrapper>{children}</ViewTransitionWrapper>
         <Analytics />
       </body>
     </html>
