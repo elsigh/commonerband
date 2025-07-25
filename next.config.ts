@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     //turbopackPersistentCaching: true,
     clientSegmentCache: true,
     viewTransition: true,
+    cacheComponents: true,
   },
 };
 

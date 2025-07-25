@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import { Providers } from "@/app/providers";
 import { Layout } from "@/components/Layout";
@@ -20,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Providers>
-      <div className="flex w-full">
-        <Layout>{children}</Layout>
-      </div>
-    </Providers>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Providers>
+        <div className="flex w-full">
+          <Layout>{children}</Layout>
+        </div>
+      </Providers>
+    </Suspense>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { connection } from "next/server";
 
 import { ContainerInner, ContainerOuter } from "@/components/Container";
 import { GIGS_LINK } from "@/constants";
@@ -26,7 +27,9 @@ function NavLink({
   );
 }
 
-export function Footer() {
+export async function Footer() {
+  await connection();
+
   return (
     <footer className="mt-32 flex-none">
       <ContainerOuter>
