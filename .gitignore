@@ -5,6 +5,11 @@ node_modules
 .env*.local
 .DS_Store
 commoner-hr-3597ac889cc3.json
+.cursor
+.mcp.json
+.codex
+.opencode.json
+tsconfig.tsbuildinfo
 
 # v0
 .v0-store
