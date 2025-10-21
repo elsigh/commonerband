@@ -1,9 +1,8 @@
 "use client";
 
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState, ViewTransition } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { unstable_ViewTransition as ViewTransition } from "react";
 
 function usePrevious<T>(value: T) {
   const ref = useRef<T>(undefined);

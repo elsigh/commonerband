@@ -3,11 +3,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  reactCompiler: true,
+  cacheComponents: true,
   experimental: {
     clientSegmentCache: true,
     viewTransition: true,
-    cacheComponents: true,
-    //reactCompiler: true,
     //turbopackPersistentCaching: true,
   },
 };
