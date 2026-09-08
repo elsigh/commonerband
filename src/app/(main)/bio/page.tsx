@@ -81,11 +81,10 @@ export default function About() {
               Van Zandt, Commoner's first record "When No One's Looking" strikes
               a melancholy, vibrant tone. The songs get into weird old feelings,
               smoky memories, and reverent joy and sorrow. Commoner has been
-              active in San Francisco for 7 years with the band now consisting
-              of Lindsey Simon (songwriter, vocals), Edward Marks on drums,
-              Richard Weld on bass and Ashley Henderson on harmony vocals. This
-              Fall 2024 will see the release of the band's second record, "To
-              Seek or to Hide" on 10inch vinyl.
+              active in San Francisco for 9 years with the band now consisting
+              of Lindsey Simon (songwriter, vocals), Edward Marks on drums, and
+              Richard Weld on bass. The band's second record, "To Seek or to
+              Hide," was released on 10inch vinyl in November 2024.
             </p>
             <p>
               Simon grew up in Texas and cut his teeth playing rock clubs in
