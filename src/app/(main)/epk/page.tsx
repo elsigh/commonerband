@@ -106,6 +106,14 @@ export default function EPK() {
         <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
           RIYL Gillian Welch, Townes Van Zandt
         </p>
+        <p className="mt-6">
+          <Link
+            href="/epk/download"
+            className="inline-flex items-center rounded-full bg-orange-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-800"
+          >
+            Download one-sheet (PDF)
+          </Link>
+        </p>
       </div>
 
       <div className="mt-10">
