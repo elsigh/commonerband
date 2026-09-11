@@ -272,3 +272,5 @@ export default function EPK() {
     </Container>
   );
 }
+
+{/* deploy test: verify Vercel auto-build after GitHub reconnect */}
