@@ -10,8 +10,7 @@ import {
   SpotifyIcon,
 } from "@/components/SocialIcons";
 
-import peopleInTheBand from "@/images/people-in-the-band.jpg";
-import instrumentsStudio from "@/images/instruments-studio.jpg";
+// Instagram originals live in public/epk/ (photo-DS3tIdcCeBY, photo-DJe9PbPyomR, live-DIjO5gOzPnt).
 
 function TrackLink({
   href,
@@ -117,32 +116,37 @@ const selectedShows = [
     name: "Bottom of the Hill",
     detail: "San Francisco",
   },
+  {
+    name: "The Plough and Stars",
+    detail: "San Francisco",
+  },
+  {
+    name: "Hopmonk",
+    detail: "Opening for Glen Phillips",
+  },
 ];
 
 type LiveClip = {
   id: string;
   title: string;
   caption: string;
-  // Set one of these when Lindsey supplies a clip. Do not invent URLs.
   youtubeId?: string;
   vimeoId?: string;
+  // Hosted file in public/epk/ — prefer this for original live clips.
+  src?: string;
+  poster?: string;
+  href?: string;
 };
 
-// TODO: replace these placeholders with original live clips (YouTube or Vimeo IDs).
-const originalLiveVideos: LiveClip[] = [
-  {
-    id: "original-1",
-    title: "Original live performance",
-    caption: "Original live video coming soon",
-    // youtubeId: "xxxxxxxxxxx",
-  },
-  {
-    id: "original-2",
-    title: "Original live performance",
-    caption: "Original live video coming soon",
-    // vimeoId: "000000000",
-  },
-];
+const originalLiveVideo: LiveClip = {
+  id: "live-DIjO5gOzPnt",
+  title: "Original live performance",
+  caption:
+    "Original live \u2014 opening for Glen Phillips at Hopmonk. Video by Maddy.",
+  src: "/epk/live-DIjO5gOzPnt.mp4",
+  poster: "/epk/live-DIjO5gOzPnt.jpg",
+  href: "https://www.instagram.com/commonerband/reel/DIjO5gOzPnt/",
+};
 
 const alsoLiveVideo: LiveClip = {
   id: "ramones-cover-both",
@@ -154,34 +158,34 @@ const alsoLiveVideo: LiveClip = {
 type PressPhoto = {
   caption: string;
   alt: string;
-  src?: StaticImageData;
-  // File in public/epk/photos/ — drop a hi-res original here and set this href.
+  src?: StaticImageData | string;
+  width?: number;
+  height?: number;
   downloadHref?: string;
   downloadLabel?: string;
+  href?: string;
 };
 
-// TODO: drop hi-res band/stage shots in public/epk/photos/ and wire them up here.
 const photos: PressPhoto[] = [
   {
-    caption: "Band photo",
-    alt: "Commoner, a San Francisco Americana band",
-    src: peopleInTheBand,
-    downloadHref: "/epk/photos/commoner-band.jpg",
+    caption: "Live at the Plough and Stars",
+    alt: "Commoner playing live at the Plough and Stars, San Francisco",
+    src: "/epk/photo-DS3tIdcCeBY.jpg",
+    width: 1440,
+    height: 1920,
+    downloadHref: "/epk/photo-DS3tIdcCeBY.jpg",
     downloadLabel: "Download",
+    href: "https://www.instagram.com/commonerband/p/DS3tIdcCeBY/",
   },
   {
-    caption: "Studio",
-    alt: "Commoner studio setup with guitar, drums, and microphone",
-    src: instrumentsStudio,
-    downloadHref: "/epk/photos/commoner-studio.jpg",
+    caption: "Live at the Plough and Stars",
+    alt: "Commoner live at the Plough and Stars, San Francisco",
+    src: "/epk/photo-DJe9PbPyomR.jpg",
+    width: 1440,
+    height: 1440,
+    downloadHref: "/epk/photo-DJe9PbPyomR.jpg",
     downloadLabel: "Download",
-  },
-  {
-    caption: "Hi-res stage photo coming soon",
-    alt: "Placeholder for a hi-res Commoner stage photo",
-    // src: stageShot,
-    // downloadHref: "/epk/photos/commoner-stage.jpg",
-    // downloadLabel: "Download",
+    href: "https://www.instagram.com/commonerband/p/DJe9PbPyomR/",
   },
 ];
 
@@ -203,11 +207,25 @@ function LiveVideoFrame({
   className?: string;
 }) {
   const embedSrc = liveEmbedSrc(clip);
+  const frameClass = clip.src ? "aspect-square" : "aspect-video";
 
   return (
     <figure className={className}>
-      <div className="aspect-video overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
-        {embedSrc ? (
+      <div
+        className={`${frameClass} overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800`}
+      >
+        {clip.src ? (
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            poster={clip.poster}
+            title={clip.title}
+            className="h-full w-full object-cover"
+          >
+            <source src={clip.src} type="video/mp4" />
+          </video>
+        ) : embedSrc ? (
           <iframe
             src={embedSrc}
             title={clip.title}
@@ -223,7 +241,22 @@ function LiveVideoFrame({
           </div>
         )}
       </div>
-      <figcaption className="mt-3 text-sm text-zinc-500">{clip.caption}</figcaption>
+      <figcaption className="mt-3 text-sm text-zinc-500">
+        {clip.caption}
+        {clip.href ? (
+          <>
+            {" "}
+            <Link
+              href={clip.href}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-zinc-400 transition hover:text-orange-700"
+            >
+              Instagram
+            </Link>
+          </>
+        ) : null}
+      </figcaption>
     </figure>
   );
 }
@@ -236,6 +269,8 @@ function PhotoCard({ photo }: { photo: PressPhoto }) {
           <Image
             src={photo.src}
             alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
             className="h-full w-full object-cover"
           />
         ) : (
@@ -246,18 +281,30 @@ function PhotoCard({ photo }: { photo: PressPhoto }) {
           </div>
         )}
       </div>
-      <figcaption className="mt-3 flex items-center justify-between gap-3 text-sm text-zinc-500">
+      <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3 text-sm text-zinc-500">
         <span>{photo.caption}</span>
-        {photo.downloadHref ? (
-          <a
-            href={photo.downloadHref}
-            download
-            className="inline-flex items-center gap-1 font-medium text-zinc-400 transition hover:text-orange-700"
-          >
-            <DownloadIcon className="h-4 w-4" />
-            {photo.downloadLabel ?? "Download"}
-          </a>
-        ) : null}
+        <span className="inline-flex items-center gap-4">
+          {photo.href ? (
+            <Link
+              href={photo.href}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-zinc-400 transition hover:text-orange-700"
+            >
+              Instagram
+            </Link>
+          ) : null}
+          {photo.downloadHref ? (
+            <a
+              href={photo.downloadHref}
+              download
+              className="inline-flex items-center gap-1 font-medium text-zinc-400 transition hover:text-orange-700"
+            >
+              <DownloadIcon className="h-4 w-4" />
+              {photo.downloadLabel ?? "Download"}
+            </a>
+          ) : null}
+        </span>
       </figcaption>
     </figure>
   );
@@ -292,9 +339,12 @@ export default function EPK() {
 
       <div className="mt-10">
         <Image
-          src={peopleInTheBand}
-          alt="Commoner, a three-piece Americana band from San Francisco"
+          src="/epk/photo-DS3tIdcCeBY.jpg"
+          alt="Commoner playing live at the Plough and Stars, San Francisco"
+          width={1440}
+          height={1920}
           className="rounded-2xl bg-zinc-100 dark:bg-zinc-800"
+          priority
         />
       </div>
 
@@ -381,10 +431,8 @@ export default function EPK() {
         <p className="mt-3 text-base text-zinc-400">
           Original live performance.
         </p>
-        <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {originalLiveVideos.map((clip) => (
-            <LiveVideoFrame key={clip.id} clip={clip} />
-          ))}
+        <div className="mt-6 max-w-md">
+          <LiveVideoFrame clip={originalLiveVideo} />
         </div>
         <div className="mt-10 max-w-2xl">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
@@ -399,12 +447,11 @@ export default function EPK() {
           Photos
         </h2>
         <p className="mt-3 text-base text-zinc-400">
-          Downloadable band and studio photos. Additional hi-res stage shots
-          coming soon.
+          Live shots from the Plough and Stars. Download for press and booking.
         </p>
-        <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
           {photos.map((photo) => (
-            <PhotoCard key={photo.caption} photo={photo} />
+            <PhotoCard key={photo.downloadHref ?? photo.caption} photo={photo} />
           ))}
         </div>
       </section>
