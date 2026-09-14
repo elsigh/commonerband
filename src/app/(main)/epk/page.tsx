@@ -226,15 +226,15 @@ function LiveVideoFrame({
             className="h-full w-full object-cover"
           >
             <source src={clip.src} type="video/mp4" />
-            {clip.captionsSrc ? (
-              <track
-                kind="captions"
-                src={clip.captionsSrc}
-                srcLang="en"
-                label="English"
-                default
-              />
-            ) : null}
+            <track
+              kind="captions"
+              src={
+                clip.captionsSrc ?? clip.src.replace(/\.mp4$/i, ".vtt")
+              }
+              srcLang="en"
+              label="English"
+              default
+            />
           </video>
         ) : embedSrc ? (
           <iframe
