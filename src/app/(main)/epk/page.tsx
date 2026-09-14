@@ -135,6 +135,7 @@ type LiveClip = {
   // Hosted file in public/epk/ — prefer this for original live clips.
   src?: string;
   poster?: string;
+  captionsSrc?: string;
   href?: string;
 };
 
@@ -145,6 +146,7 @@ const originalLiveVideo: LiveClip = {
     "Original live \u2014 opening for Glen Phillips at Hopmonk. Video by Maddy.",
   src: "/epk/live-DIjO5gOzPnt.mp4",
   poster: "/epk/live-DIjO5gOzPnt.jpg",
+  captionsSrc: "/epk/live-DIjO5gOzPnt.vtt",
   href: "https://www.instagram.com/commonerband/reel/DIjO5gOzPnt/",
 };
 
@@ -224,11 +226,21 @@ function LiveVideoFrame({
             className="h-full w-full object-cover"
           >
             <source src={clip.src} type="video/mp4" />
+            {clip.captionsSrc ? (
+              <track
+                kind="captions"
+                src={clip.captionsSrc}
+                srcLang="en"
+                label="English"
+                default
+              />
+            ) : null}
           </video>
         ) : embedSrc ? (
           <iframe
             src={embedSrc}
             title={clip.title}
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="h-full w-full"
@@ -433,6 +445,28 @@ export default function EPK() {
         </p>
         <div className="mt-6 max-w-md">
           <LiveVideoFrame clip={originalLiveVideo} />
+          <details className="mt-4 text-sm text-zinc-500">
+            <summary className="cursor-pointer font-medium text-zinc-400 transition hover:text-orange-700">
+              Transcript
+            </summary>
+            <div className="mt-3 space-y-3 text-zinc-400">
+              <p>
+                Live performance of &ldquo;My Default Heart&rdquo; at Hopmonk.
+              </p>
+              <p className="whitespace-pre-line">
+                {`My default heart's
+Pulled to the dark arts
+
+I like the poisons more than the cures
+
+I can prove it too
+Takes more than a few
+
+Chasing that feeling at the start
+Before we fall hard`}
+              </p>
+            </div>
+          </details>
         </div>
         <div className="mt-10 max-w-2xl">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
