@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@/components/SocialIcons";
 
 import peopleInTheBand from "@/images/people-in-the-band.jpg";
+import instrumentsStudio from "@/images/instruments-studio.jpg";
 
 function TrackLink({
   href,
@@ -58,10 +58,24 @@ function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   );
 }
 
+function DownloadIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" {...props}>
+      <path
+        d="M12 4v12m0 0 4.5-4.5M12 16l-4.5-4.5M5 20h14"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title: "EPK",
   description:
-    "Electronic press kit for Commoner, a San Francisco Americana band: music, live video, bio, and booking contact.",
+    "Electronic press kit for Commoner, a San Francisco Americana trio: bio, selected shows, music, live video, photos, and booking contact.",
 };
 
 const SEEK_HIDE_SPOTIFY = "https://open.spotify.com/album/21Zk4Cig8N0aI45jJxy4VG";
@@ -93,6 +107,162 @@ const tracks = [
   },
 ];
 
+// Add more selected stages here as they land.
+const selectedShows = [
+  {
+    name: "Noise Pop\u2019s Americanafest",
+    detail: "San Francisco",
+  },
+  {
+    name: "Bottom of the Hill",
+    detail: "San Francisco",
+  },
+];
+
+type LiveClip = {
+  id: string;
+  title: string;
+  caption: string;
+  // Set one of these when Lindsey supplies a clip. Do not invent URLs.
+  youtubeId?: string;
+  vimeoId?: string;
+};
+
+// TODO: replace these placeholders with original live clips (YouTube or Vimeo IDs).
+const originalLiveVideos: LiveClip[] = [
+  {
+    id: "original-1",
+    title: "Original live performance",
+    caption: "Original live video coming soon",
+    // youtubeId: "xxxxxxxxxxx",
+  },
+  {
+    id: "original-2",
+    title: "Original live performance",
+    caption: "Original live video coming soon",
+    // vimeoId: "000000000",
+  },
+];
+
+const alsoLiveVideo: LiveClip = {
+  id: "ramones-cover-both",
+  title: "\u201CI Wanna Be Sedated\u201D (Ramones cover)",
+  caption: "Also: live at Bottom of the Hill, San Francisco",
+  youtubeId: "8rWIlAgyQeU",
+};
+
+type PressPhoto = {
+  caption: string;
+  alt: string;
+  src?: StaticImageData;
+  // File in public/epk/photos/ — drop a hi-res original here and set this href.
+  downloadHref?: string;
+  downloadLabel?: string;
+};
+
+// TODO: drop hi-res band/stage shots in public/epk/photos/ and wire them up here.
+const photos: PressPhoto[] = [
+  {
+    caption: "Band photo",
+    alt: "Commoner, a San Francisco Americana band",
+    src: peopleInTheBand,
+    downloadHref: "/epk/photos/commoner-band.jpg",
+    downloadLabel: "Download",
+  },
+  {
+    caption: "Studio",
+    alt: "Commoner studio setup with guitar, drums, and microphone",
+    src: instrumentsStudio,
+    downloadHref: "/epk/photos/commoner-studio.jpg",
+    downloadLabel: "Download",
+  },
+  {
+    caption: "Hi-res stage photo coming soon",
+    alt: "Placeholder for a hi-res Commoner stage photo",
+    // src: stageShot,
+    // downloadHref: "/epk/photos/commoner-stage.jpg",
+    // downloadLabel: "Download",
+  },
+];
+
+function liveEmbedSrc(clip: LiveClip) {
+  if (clip.youtubeId) {
+    return `https://www.youtube.com/embed/${clip.youtubeId}`;
+  }
+  if (clip.vimeoId) {
+    return `https://player.vimeo.com/video/${clip.vimeoId}`;
+  }
+  return null;
+}
+
+function LiveVideoFrame({
+  clip,
+  className,
+}: {
+  clip: LiveClip;
+  className?: string;
+}) {
+  const embedSrc = liveEmbedSrc(clip);
+
+  return (
+    <figure className={className}>
+      <div className="aspect-video overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
+        {embedSrc ? (
+          <iframe
+            src={embedSrc}
+            title={clip.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center border border-dashed border-zinc-300 px-6 text-center dark:border-zinc-600">
+            <p className="text-sm font-medium text-zinc-300">
+              Original live video coming soon
+            </p>
+          </div>
+        )}
+      </div>
+      <figcaption className="mt-3 text-sm text-zinc-500">{clip.caption}</figcaption>
+    </figure>
+  );
+}
+
+function PhotoCard({ photo }: { photo: PressPhoto }) {
+  return (
+    <figure>
+      <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
+        {photo.src ? (
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center border border-dashed border-zinc-300 px-6 text-center dark:border-zinc-600">
+            <p className="text-sm font-medium text-zinc-300">
+              Hi-res stage photo coming soon
+            </p>
+          </div>
+        )}
+      </div>
+      <figcaption className="mt-3 flex items-center justify-between gap-3 text-sm text-zinc-500">
+        <span>{photo.caption}</span>
+        {photo.downloadHref ? (
+          <a
+            href={photo.downloadHref}
+            download
+            className="inline-flex items-center gap-1 font-medium text-zinc-400 transition hover:text-orange-700"
+          >
+            <DownloadIcon className="h-4 w-4" />
+            {photo.downloadLabel ?? "Download"}
+          </a>
+        ) : null}
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function EPK() {
   return (
     <Container className="md:mt-12">
@@ -101,7 +271,11 @@ export default function EPK() {
           Electronic Press Kit
         </h1>
         <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400">
-          Commoner &middot; Americana band &middot; San Francisco
+          Local SF Americana trio &middot; 2024 vinyl &middot; Noise Pop
+          Americanafest
+        </p>
+        <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
+          Commoner &middot; Americana &middot; San Francisco
         </p>
         <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
           RIYL Gillian Welch, Townes Van Zandt
@@ -131,27 +305,35 @@ export default function EPK() {
           </h2>
           <div className="mt-4 space-y-5 text-base text-zinc-400">
             <p>
-              With a sound that would love to wade in a stream with Gillian
-              Welch and Townes Van Zandt, Commoner&rsquo;s songs get into weird
-              old feelings, smoky memories, and reverent joy and sorrow. Active
-              in San Francisco for 9 years, the band now plays as a trio:
-              Lindsey Simon (songwriter, vocals), Edward Marks (drums), and
-              Richard Weld (bass).
+              Commoner is a San Francisco Americana trio in the lane of Gillian
+              Welch and Townes Van Zandt &mdash; smoky, melancholy songs about
+              old feelings and hard-won joy. Lindsey Simon (songs/vocals) cut
+              his teeth in Austin (Black Cat Lounge residence, Emo&rsquo;s
+              supports, touring with Subset) before planting the band in SF,
+              where they&rsquo;ve been active for nine years with Edward Marks
+              (drums) and Richard Weld (bass).
             </p>
             <p>
-              Their second record, &ldquo;To Seek or To Hide,&rdquo; was
-              released on 10-inch vinyl in November 2024. The band previously
-              played Noise Pop&rsquo;s Americanafest.
+              Second record &ldquo;To Seek or To Hide&rdquo; came out on 10&quot;
+              vinyl in November 2024. Selected stages include Noise
+              Pop&rsquo;s Americanafest and Bottom of the Hill. Unsigned; own
+              masters and publishing (one-stop for sync).
             </p>
           </div>
 
           <h2 className="mt-10 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-            Sync licensing
+            Selected shows
           </h2>
-          <p className="mt-4 text-base text-zinc-400">
-            Commoner is unsigned and owns its masters and publishing outright
-            &mdash; one-stop clearance for film and TV placements.
-          </p>
+          <ul className="mt-4 divide-y divide-zinc-100 dark:divide-zinc-800">
+            {selectedShows.map((show) => (
+              <li key={show.name} className="py-3">
+                <p className="font-semibold text-zinc-800 dark:text-zinc-100">
+                  {show.name}
+                </p>
+                <p className="mt-1 text-sm text-zinc-500">{show.detail}</p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section>
@@ -196,18 +378,52 @@ export default function EPK() {
         <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
           Live
         </h2>
-        <div className="mt-4 aspect-video overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
-          <iframe
-            src="https://www.youtube.com/embed/8rWIlAgyQeU"
-            title='Commoner live at Bottom of the Hill, San Francisco'
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="h-full w-full"
-          />
+        <p className="mt-3 text-base text-zinc-400">
+          Original live performance.
+        </p>
+        <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {originalLiveVideos.map((clip) => (
+            <LiveVideoFrame key={clip.id} clip={clip} />
+          ))}
         </div>
-        <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-500">
-          Live at Bottom of the Hill, San Francisco &mdash; &ldquo;I Wanna Be
-          Sedated&rdquo; (Ramones cover)
+        <div className="mt-10 max-w-2xl">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Also
+          </h3>
+          <LiveVideoFrame clip={alsoLiveVideo} className="mt-3" />
+        </div>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+          Photos
+        </h2>
+        <p className="mt-3 text-base text-zinc-400">
+          Downloadable band and studio photos. Additional hi-res stage shots
+          coming soon.
+        </p>
+        <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {photos.map((photo) => (
+            <PhotoCard key={photo.caption} photo={photo} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+          Tech
+        </h2>
+        <p className="mt-4 text-base text-zinc-400">
+          Trio: vocals/guitar, drums, bass.
+        </p>
+        <p className="mt-3 text-base text-zinc-400">
+          Stage plot available on request &mdash;{" "}
+          <Link
+            href="mailto:band@commoner.com"
+            className="font-medium text-zinc-200 transition hover:text-orange-700"
+          >
+            band@commoner.com
+          </Link>
         </p>
       </section>
 
@@ -225,7 +441,7 @@ export default function EPK() {
           </Link>
         </p>
         <ul className="mt-6">
-          <li className={clsx("flex")}>
+          <li className="flex">
             <Link
               href="https://instagram.com/commonerband"
               target="_blank"
@@ -236,7 +452,7 @@ export default function EPK() {
               <span className="ml-4">Instagram</span>
             </Link>
           </li>
-          <li className={clsx("mt-4", "flex")}>
+          <li className="mt-4 flex">
             <Link
               href="https://www.facebook.com/commonerband"
               target="_blank"
@@ -247,7 +463,7 @@ export default function EPK() {
               <span className="ml-4">Facebook</span>
             </Link>
           </li>
-          <li className={clsx("mt-4", "flex")}>
+          <li className="mt-4 flex">
             <Link
               href="https://www.youtube.com/watch?v=8rWIlAgyQeU"
               target="_blank"
@@ -258,7 +474,7 @@ export default function EPK() {
               <span className="ml-4">YouTube</span>
             </Link>
           </li>
-          <li className={clsx("mt-4", "flex")}>
+          <li className="mt-4 flex">
             <Link
               href="mailto:band@commoner.com"
               className="group flex text-sm font-medium text-zinc-400 transition hover:text-zinc-200"
@@ -272,5 +488,3 @@ export default function EPK() {
     </Container>
   );
 }
-
-{/* deploy test: verify Vercel auto-build after GitHub reconnect */}
